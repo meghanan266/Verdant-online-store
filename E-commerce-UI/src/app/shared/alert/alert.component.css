@@ -1,0 +1,86 @@
+.toaster {
+    position: fixed;
+    top: 125px;
+    right: 30px;
+    border-radius: 12px;
+    padding: 10px 35px 10px 25px;
+    box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    animation: slide 1s 1;
+}
+
+.toaster .toaster-content {
+    display: flex;
+    align-items: center;
+}
+
+.toaster-content .fa-check,
+.toaster-content .fa-xmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    min-width: 35px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.toaster-content .message {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.message .text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.toaster .close {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.toaster .close:hover {
+    opacity: 1;
+}
+
+.toaster.success {
+    border: 1px solid green;
+}
+
+.toaster.fail {
+    border: 1px solid red;
+}
+
+.toaster.success .toaster-content .fa-check,
+.toaster.fail .toaster-content .fa-xmark {
+    background-color: green;
+}
+
+.toaster.fail .toaster-content .fa-check,
+.toaster.fail .toaster-content .fa-xmark {
+    background-color: red;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(calc(100% + 30px));
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}

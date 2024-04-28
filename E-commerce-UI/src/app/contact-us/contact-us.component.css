@@ -1,0 +1,153 @@
+.content {
+    height: 50vh;
+}
+
+h1 {
+    font-size: 4vmax;
+    font-weight: 600;
+}
+
+.hand-1 img {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    animation: slide-in-from-left 2s ease 0s 1 normal forwards;
+}
+
+.hand-2 img {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    animation: slide-in-from-right 2s ease 0s 1 normal forwards;
+}
+
+.content img {
+    width: 20vw;
+}
+
+.contact-us {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.text {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    animation: slide-left 2s ease 2s 1 normal forwards;
+}
+
+@keyframes slide-left {
+    100% {
+        transform: translateX(-20vw) translateY(10vh);
+    }
+}
+
+@keyframes slide-in-from-left {
+    0% {
+        transform: translateX(-1000px);
+    }
+
+    60% {
+        transform: translateX(25vw);
+    }
+
+    100% {
+        transform: translateX(-1000px);
+        display: none;
+    }
+}
+
+@keyframes slide-in-from-right {
+    0% {
+        transform: translateX(1000px);
+    }
+
+    60% {
+        transform: translateX(-25vw);
+    }
+
+    100% {
+        transform: translateX(1000px);
+        display: none;
+    }
+}
+
+.line {
+    height: 3px;
+    display: inline-block;
+    vertical-align: text-top;
+    background: #0000005c;
+    animation: draw-line 3s ease 4s forwards;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+@keyframes draw-line {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 8vw;
+    }
+}
+
+i {
+    border-radius: 50%;
+    box-shadow: 0 0 2px #888;
+    padding: 1rem;
+    margin: 10px;
+}
+
+.contact-details h6 {
+    vertical-align: text-bottom;
+    display: inline-block;
+    font-weight: 600;
+}
+
+
+.contact-details {
+    animation: slide-up 3s ease 4s forwards;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 5%;
+    width: 35%;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translatey(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translatey(-20px);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .text {
+        animation: none;
+    }
+    
+    .contact-details {
+        width: 100%;
+        left: 0;
+        top: 35%;
+    }
+
+    .content {
+        height: 65vh;
+    }
+}
+
+@media screen and (max-width: 318px) {
+    .content {
+        height: 85vh;
+    }
+}
+

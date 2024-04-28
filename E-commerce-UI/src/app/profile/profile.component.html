@@ -1,0 +1,38 @@
+<div *ngIf="user.email != undefined" id="profile">
+    <app-alert [alert]="alert"></app-alert>
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-4 col-md-5 offset-lg-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Profile</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form [formGroup]="profileForm">
+                            <div class="form-group">
+                                <span class="label">Email</span>
+                                <input readonly="readonly" formControlName="email" type="email">
+                            </div>
+                            <div class="form-group">
+                                <span class="label">Username</span>
+                                <input formControlName="userName" type="text">
+                            </div>
+                            <div class="form-group">
+                                <span class="label">Phone number</span>
+                                <input formControlName="phone" type="tel" pattern="[0-9]{10}">
+                            </div>
+                            <div class="form-group" *ngIf="isChangePassword">
+                                <span class="label">Password</span>
+                                <input type="text" formControlName="password">
+                            </div>
+                            <button *ngIf="!isChangePassword" class="form-group"
+                                (click)="isChangePassword = true">Change Password<span class="fa fa-pen"
+                                    style="padding-left: 0.3rem;"></span></button>
+                            <div><button type="submit" (click)="onClickSave()">Save</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

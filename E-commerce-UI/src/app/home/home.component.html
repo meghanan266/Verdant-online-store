@@ -1,0 +1,88 @@
+<div id="home">
+    <div class="hair-img">
+        <div class="font-text" style="font-size: 3vw; font-weight:500;">
+            Are you ready to experience <br>"Good Hair Days"?
+            <svg style="position:absolute;" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="gooey">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                        <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                            result="highContrastGraphic" />
+                        <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+                    </filter>
+                </defs>
+            </svg>
+
+            <button routerLink="products" id="gooey-button">
+                SHOP NOW!
+                <span class="bubbles">
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                </span>
+            </button>
+        </div>
+        <!-- <img src="assets\images\hair-flow.png" alt=""> -->
+    </div>
+    <div class="best-seller">
+        <h1 style="text-align: center;">Best Sellers</h1>
+        <div class="best-seller-grid">
+            <div class="item" *ngFor="let product of bestSellerList">
+                <img (click)="OnClickProduct(product)" src="{{product.pictureUrl[0]}}" class="card-img-top"
+                    alt="{{product.productName}}">
+                <div class="card-body">
+                    <h5 (click)="OnClickProduct(product)" class="card-title"><b> {{product.productName}} Hairoil -
+                            {{product.productQuantity}}</b></h5>
+                    <p (click)="OnClickProduct(product)" class="card-text"><b>{{product.price | currency:'INR'}}</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="desc-pic">
+        <img src="assets\images\desc-pic.png" alt="">
+        <p class="para">
+            <b>
+                When the concept of self care and self love are on the horizon, and there's a chill in the air
+                -- what better reasons to spend a little more time pampering and nourishing your hair?
+            </b>
+            <br><br>
+            We are a small
+            business,
+            making hair care alot more accessible by preparing hair oil which has been passed down to our generation
+            from our parents.
+            Our products, are cruelty-free and ethically made as part of our standing commitment to the environment.
+            We know you value clean beauty products and hope that this will be your staple in your routine hair care.
+            <br><br>
+            - With love and care <i class="fa-regular fa-heart"></i> <br> Verdant hair essential
+        </p>
+    </div>
+    <div class="review">
+
+    </div>
+    <h1 style="text-align: center; margin-top: 3rem;">We are Cerfitied</h1>
+    <div class="certified">
+        <div>
+            <img class="certified-img" src="assets\images\hand-made.png" alt="">
+            <h5> Handmade with Love</h5>
+        </div>
+        <div>
+            <img class="certified-img" src="assets\images\cruelty-free.png" alt="">
+            <h5>Cruelty Free</h5>
+        </div>
+        <div>
+            <img class="certified-img" src="assets\images\organic.png" alt="">
+            <h5>Organic Ingredients</h5>
+        </div>
+        <div>
+            <img class="certified-img" src="assets\images\lab-tested.png" alt="">
+            <h5>Lab Tested</h5>
+        </div>
+    </div>
+</div>

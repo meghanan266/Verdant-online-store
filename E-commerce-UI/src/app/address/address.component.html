@@ -1,0 +1,68 @@
+<div id="addressList">
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 3rem;">Address</h1>
+        <div class="address-list" *ngIf="addressList?.length > 0 && !addNewAddress && !editAddress">
+            <div class="address" *ngFor="let add of addressList; let i =  index">
+                <div style="position: relative;">
+                    <input type="radio" name="add" id="add" [checked]="i == 0" (change)="onChangeAddress(add)">
+                    <label for="add">
+                        <div>{{add.address}}</div>
+                        <div>{{add.locality}}</div>
+                        <div>{{add.city}} - {{add.pincode}}</div>
+                        <div>{{add.state}}</div>
+                    </label>
+                </div>
+                <div class="actions">
+                    <span (click)="onEditAddress(add)" class="fa-solid fa-pencil"></span>
+                    <span (click)="onDeleteAddress(add.addressId)" class="fa-solid fa-trash-can"></span>
+                </div>
+            </div>
+
+            <div style="width: 50%; margin: auto; padding-bottom: 1rem;">
+                <button class="addMoreAddress" type="submit" (click)="addAddress()"><b>Add New Address</b></button>
+            </div>
+        </div>
+
+        <div *ngIf="router.url.includes('cart') && addressList?.length > 0 && !editAddress && !addNewAddress"
+            style="margin: auto; width: calc(10vw + 10rem);">
+            <button class="proceedPayment" type="submit" (click)="proceedToPayment()">Proceed to payment</button>
+        </div>
+
+        <div *ngIf="addressList?.length == 0 || addNewAddress || editAddress" class="new-address">
+            <form [formGroup]="addressForm">
+                <div class="row">
+                    <div class="col-6 form-group">
+                        <label for="pincode">Pincode</label>
+                        <input formControlName="pincode" type="text" name="pincode" id="pincode"
+                            (blur)="getAddressDetails()">
+                    </div>
+                    <div class="col-6 form-group">
+                        <label for="state">State</label>
+                        <input formControlName="state" type="text" name="state" id="state">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input formControlName="address" type="text" name="address" id="address">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="locality">Locality</label>
+                        <input formControlName="locality" type="text" name="locality" id="locality">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="city">City</label>
+                        <input formControlName="city" type="text" name="city" id="city">
+                    </div>
+                </div>
+                <div style="margin: auto; width: calc(10vw + 10rem);">
+                    <button class="addAddressButton" [disabled]="addressForm.invalid" type="submit"
+                        (click)="saveAddress()">Save Address</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

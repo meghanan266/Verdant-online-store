@@ -1,0 +1,117 @@
+.story {
+    width: 80%;
+    margin: auto;
+}
+
+.section-1 p {
+    text-align: justify;
+}
+
+.section-1 img {
+    width: 35vw;
+    height: 40vh;
+}
+
+.section-1 {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    align-items: center;
+    margin-top: 3rem;
+}
+
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    width: 30vw;
+    height: 40vh;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, .3);
+    transform: rotate(-2deg);
+    border: 7px solid #fff;
+}
+
+/********BACKGROUND********/
+.dust,
+.midground {
+    position: absolute;
+    animation-duration: 10s;
+    animation-delay: 0ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+
+/********MIDGROUND********/
+.midground {
+    z-index: 2;
+    -moz-animation-name: midground;
+    -ms-animation-name: midground;
+    -o-animation-name: midground;
+    -webkit-animation-name: midground;
+    animation-name: midground;
+}
+
+@keyframes midground {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1) translateX(-50px) translateY(0px) rotate(2deg);
+    }
+}
+
+
+
+/********DUST********/
+.dust {
+    z-index: 4;
+    -moz-animation-name: dust;
+    -ms-animation-name: dust;
+    -o-animation-name: dust;
+    -webkit-animation-name: dust;
+    animation-name: dust;
+}
+
+@keyframes dust {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(2) translateX(10px) translateY(0px);
+        filter: blur(2px);
+    }
+}
+
+
+.section-2 {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    justify-items: center;
+    text-align: justify;
+    margin-top: 5rem;
+    align-items: center;
+}
+
+.section-2 img {
+    width: 90%;
+    aspect-ratio: 3/2;
+}
+
+@media screen and (max-width: 650px) {
+    #wrapper{
+        width: 70vw;
+        height: 30vh;
+    }
+    .section-1 img {
+        width: 85vw;
+    }
+    .section-2 {
+        margin-top: 1rem;
+    }
+}

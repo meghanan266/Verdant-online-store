@@ -1,0 +1,75 @@
+#addressList .new-address {
+    margin: auto;
+    width: calc(30vw + 10rem);
+}
+
+#addressList .address-list {
+    margin: auto;
+    width: calc(20vw + 10rem);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#addressList .address-list label {
+    padding: 1rem 2rem;
+}
+
+#addressList .address-list .address {
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#addressList .new-address .form-group {
+    padding: 1rem;
+}
+
+#addressList .new-address .form-group input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+}
+
+#addressList .addAddressButton,
+#addressList .proceedPayment {
+    background-color: #314254;
+    color: #f5f2ee;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 3rem;
+}
+
+#addressList input:focus {
+    outline: none !important;
+    border-bottom: solid 1px #7f7f81 !important;
+}
+
+#addressList button[type=submit]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#addressList .addMoreAddress {
+    border: none;
+    width: 100%;
+    border-radius: 20px;
+    padding: 0.3rem 0;
+    background-color: #e9e6e1;
+    box-shadow: 0 0 4px 1px #888;
+}
+
+#addressList .address input[type="radio"] {
+    transform: scale(1.2);
+    position: absolute;
+    top: 1.4rem;
+}
+
+#addressList .address .actions span {
+    padding-left: 0.6rem;
+}

@@ -1,0 +1,102 @@
+<div id="product-view" class="container" *ngIf="selectedProductId != 0">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade col">
+        <div class="carousel-inner">
+            <div [ngClass]="i == 0 ? 'carousel-item active': 'carousel-item'"
+                *ngFor="let itemUrl of selectedProduct?.pictureUrl; let i = index">
+                <img src="{{itemUrl}}" class="d-block w-100" alt="...">
+            </div>
+            <!-- <div class="carousel-item active">
+            </div>
+            <div class="carousel-item">
+                <img src="../../assets/images/flower-bg.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../../assets/images/product.jpg" class="d-block w-100" alt="...">
+            </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="col" style="margin-left: 3rem;">
+        <h1>{{selectedProduct?.productName}} Hairoil - {{selectedProduct?.productQuantity}}</h1>
+        <h3 style="color: #f5f2ee;">{{selectedProduct?.price | currency:'INR'}}/-</h3>
+        <div class="product-desc">
+            <h3>Description</h3>
+            <div>
+                <p>{{selectedProduct?.productDescription}}</p>
+            </div>
+        </div>
+        <div class="addCart" style="text-align: -webkit-center; margin-top: 3rem;">
+            <button (click)="addToCart()">
+                <span class="addToCart">Add to Cart</span>
+                <span class="addToCartIcon fa-solid fa-cart-arrow-down"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div style="margin-top: 5rem;" class="review-section">
+    <app-alert [alert]="alert"></app-alert>
+    <h1 style="text-align: center; margin-bottom: 3rem;">Product Reviews
+        <h6 *ngIf="reviewList?.length > 0">({{avgReview}} <i class="fa-solid fa-star"></i> | {{reviewList?.length}} buyers)</h6>
+    </h1>
+    <div *ngIf="reviewList?.length == 0" class="no-review">
+        <p>There are no reviews yet for this product.</p>
+    </div>
+    <div class="display-review">
+        <div class="reviews" *ngFor="let rev of reviewList">
+            <video *ngIf="rev.reviewRange <= 33" autoplay muted loop>
+                <source src="../../assets/images/bad-review.mp4" type="video/mp4">
+            </video>
+            <video *ngIf="rev.reviewRange > 66" autoplay muted loop>
+                <source src="../../assets/images/good-review.mp4" type="video/mp4">
+            </video>
+            <video *ngIf="rev.reviewRange > 33 && rev.reviewRange <= 66" autoplay muted loop>
+                <source src="../../assets/images/okay-review.mp4" type="video/mp4">
+            </video>
+            <div>
+                <b>{{rev.userName | titlecase}} | {{rev.reviewDate | date: 'MMMM d, y'}}</b><br>
+                {{rev.reviewDescription}} <br>
+            </div>
+        </div>
+
+    </div>
+    <div *ngIf="isUserLoggedIn" class="add-review">
+        <div class="addReviewButton" style="text-align: center;">
+            <button *ngIf="!isAddReview" (click)="isAddReview = true;">Add a Review</button>
+        </div>
+        <div *ngIf="isAddReview" class="add-review-section">
+            <h4 style="text-align: center; font-weight: 600; margin-bottom: 2rem;">ADD YOUR REVIEW</h4>
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div class="review-range">
+                    <video *ngIf="reviewRange <= 34" autoplay muted loop>
+                        <source src="../../assets/images/bad-review.mp4" type="video/mp4">
+                    </video>
+                    <video *ngIf="reviewRange > 67" autoplay muted loop>
+                        <source src="../../assets/images/good-review.mp4" type="video/mp4">
+                    </video>
+                    <video *ngIf="reviewRange > 34 && reviewRange <= 67" autoplay muted loop>
+                        <source src="../../assets/images/okay-review.mp4" type="video/mp4">
+                    </video>
+                    <input class="slider" type="range" min="1" max="100" step="1" (input)="onReviewRangeChange($event)"
+                        [value]="reviewRange">
+                </div>
+                <div class="review-desc">
+                    <textarea placeholder="Please enter your review." (change)="onReviewDescChange($event)"
+                        id="review-textarea" name="textarea" rows="7" cols="50"></textarea>
+                </div>
+            </div>
+
+            <div style="text-align: center;" class="submit-review">
+                <button (click)="onClickSubmit()" type="submit">Submit Review</button>
+            </div>
+        </div>
+
+    </div>
+</div>

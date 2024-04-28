@@ -1,0 +1,99 @@
+<div *ngIf="cart?.cartItems.length > 0" id="cart">
+    <div class="container">
+        <h1 style="margin-bottom: 4rem; text-align: center;">Shopping Cart</h1>
+        <div class="row heading">
+            <div class="col-sm-5">
+                Product
+            </div>
+            <div class="col-sm-2">
+                Price
+            </div>
+            <div class="col-sm-2">
+                Quantity
+            </div>
+            <div class="col-sm-2">
+                Subtotal
+            </div>
+            <div class="col-sm-1">
+            </div>
+        </div>
+        <div class="cart-item" *ngFor="let cartItem of cart?.cartItems">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="{{cartItem.product.pictureUrl[0]}}" alt="">
+                    <span style="font-size: larger;font-weight: 300;">{{cartItem.product.productName}} -
+                        {{cartItem.product.productQuantity}}
+                    </span>
+                </div>
+                <div class="col-sm-2 product-price">
+                    <h6>{{cartItem.product.price | currency:'INR'}}</h6>
+                </div>
+                <div class="col-sm-2">
+                    <div class="quantity">
+                        <button [disabled]="cartItem.quantity == 1" (click)="removeQuantity(cartItem)"
+                            class="fa-solid fa-circle-minus"></button>
+                        <span class="quantity-num">{{cartItem.quantity}}</span>
+                        <button (click)="addQuantity(cartItem)" class="fa-solid fa-circle-plus"></button>
+                    </div>
+                </div>
+                <div class="col-sm-2 sub-total">
+                    <h6>{{cartItem.product.price * cartItem.quantity | currency:'INR'}}</h6>
+                </div>
+                <div class="col-sm-1">
+                    <div class="remove-item">
+                        <button (click)="removeCartItem(cartItem)" class="fa-solid fa-trash-can">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="price-info">
+            <div class="row">
+                <div class="col-7">
+                    Total MRP
+                </div>
+                <div class="col-5">
+                    {{cart.totalPrice | currency:'INR'}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    Shipping
+                </div>
+                <div class="col-5">
+                    {{shippingCharge | currency:'INR'}}
+                </div>
+            </div>
+            <div class="row total-amt">
+                <div class="col-7">
+                    <h5><b>Total Amount</b></h5>
+                </div>
+                <div class="col-5">
+                    <h5><b>{{cart.totalPrice + shippingCharge | currency:'INR'}}</b></h5>
+                </div>
+            </div>
+            <div class="proceed">
+                <button (click)="onClickCheckout()" type="submit">PROCEED TO CHECKOUT <i
+                        class="fa-solid fa-arrow-right-long"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="cart == null || cart?.cartItems.length == 0" id="empty-cart">
+    <div style="margin-top: 3rem;" class="container">
+        <div class="empty-cart-img">
+            <img src="../../assets/images/empty-cart-img.png" alt="">
+        </div>
+        <div style="text-align: center; margin-top: 1rem;">
+            <h2 style="font-weight: 400;">Umm.. Can't see any items in your cart 🧐</h2>
+        </div>
+
+    </div>
+    <div class="empty-cart-video">
+        <button routerLink="/products" class="shop-now">
+            SHOP NOW
+        </button>
+    </div>
+</div>

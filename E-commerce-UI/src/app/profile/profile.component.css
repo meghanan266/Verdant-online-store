@@ -1,0 +1,55 @@
+#profile {
+    background-image: url("../../assets/images/flower-bg.png");
+    color: #314254;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: bottom;
+    min-height: 80vh;
+    background-size: contain;
+}
+
+#profile .form-group .label {
+    top: -13px;
+    left: 12px;
+    padding: 0px 3px;
+    position: absolute;
+    background-color: #b6c4bc;
+}
+
+#profile .form-group input {
+    border: solid 1px #ededef;
+    font-size: 16px;
+    padding: 12px;
+    height: auto;
+    color: #282c3f;
+    width: 100%;
+    background-color: #b6c4bcb5;
+}
+
+#profile .form-group {
+    margin-bottom: 16px;
+    position: relative;
+    color: #314254;
+}
+
+#profile .form-group input:focus {
+    outline: none !important;
+    border: solid 1px #7f7f81 !important;
+}
+
+#profile .panel {
+    text-align: center;
+}
+
+#profile .panel-body {
+    padding-top: 2rem;
+}
+
+#profile button[type=submit] {
+    background-color: #314254;
+    color: #f5f2ee;
+    width: 30%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}

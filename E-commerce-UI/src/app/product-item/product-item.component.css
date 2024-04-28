@@ -1,0 +1,174 @@
+#product-view {
+    color: #314254;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#product-view .addCart button {
+    background-color: #314254;
+    color: #f5f2ee;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    border: none;
+    overflow: hidden;
+    transition: all 0.2s;
+    font-size: medium;
+    font-weight: 100;
+    justify-content: center;
+    width: 45%;
+    padding: 0.5rem;
+}
+
+.product-desc div p {
+    text-align: justify;
+}
+
+.product-desc {
+    margin-top: 2rem;
+}
+
+#product-view .addCart button .addToCartIcon {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+#product-view .addCart button:active .addToCartIcon {
+    transform: translateY(2em);
+}
+
+#product-view .addCart button:active {
+    transform: scale(0.95);
+}
+
+#product-view .carousel-control-next {
+    right: -5rem;
+}
+
+#product-view .carousel-control-prev {
+    left: -5rem;
+}
+
+#product-view #carouselExampleFade {
+    margin-right: 3rem;
+}
+
+#product-view .carousel-item img {
+    height: 25rem !important;
+    border-radius: 3px;
+}
+
+.reviews img {
+    width: 5rem;
+    margin-right: 1rem;
+}
+
+.reviews {
+    display: flex;
+    padding: 1rem;
+    margin: 2rem;
+    border: 1px solid black;
+    align-items: flex-start;
+    border-radius: 20px;
+}
+
+.display-review {
+    width: 60%;
+    margin: auto;
+}
+
+video {
+    width: 5rem;
+}
+
+.add-review {
+    width: 60%;
+    margin: auto;
+}
+
+.addReviewButton button {
+    border: none;
+    width: 30%;
+    border-radius: 20px;
+    padding: 0.3rem 0;
+    background-color: #e9e6e1;
+    box-shadow: 0 0 4px 1px #888;
+}
+
+.add-review-section {
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 1px;
+    background: #f8f4f4;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #314254;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #314254;
+    cursor: pointer;
+}
+
+.review-range {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.review-range video {
+    width: 10rem;
+    padding-bottom: 2rem;
+}
+
+.submit-review {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.submit-review button {
+    background-color: #314254;
+    color: #f5f2ee;
+    border-radius: 2rem;
+    padding: 0.5rem 3rem;
+}
+
+#review-textarea {
+    background-color: #ececec;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+
+.no-review {
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.no-review p {
+    margin: 0;
+}

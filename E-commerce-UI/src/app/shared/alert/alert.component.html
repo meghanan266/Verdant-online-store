@@ -1,0 +1,10 @@
+<div id="toaster" *ngIf="alert?.show" class="toaster active {{alert?.type}}">
+    <div class="toaster-content">
+        <i *ngIf="alert?.type == 'success'" class="fas fa-solid fa-check"></i>
+        <i *ngIf="alert?.type == 'fail'" class="fas fa-solid fa-xmark"></i>
+        <div class="message">
+            <span class="">{{alert?.message}}</span>
+        </div>
+    </div>
+    <span (click)="resetAlert()" class="fa-solid fa-xmark close"></span>
+</div>

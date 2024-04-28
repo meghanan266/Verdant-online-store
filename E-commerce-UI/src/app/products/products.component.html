@@ -1,0 +1,26 @@
+<div id="product-page">
+    <div class="container">
+        <div style="text-align: center;margin-bottom: 3rem;">
+            <h1>Shop our Products</h1>
+        </div>
+        <div class="product-grid">
+            <div class="col" *ngFor="let product of productList">
+                <div class="card">
+                    <img (click)="OnClickProduct(product)" src="{{product.pictureUrl[0]}}" class="card-img-top"
+                        alt="{{product.productName}}">
+                    <div class="card-body">
+                        <h5 (click)="OnClickProduct(product)" class="card-title">{{product.productName}} Hairoil -
+                            {{product.productQuantity}}</h5>
+                        <p (click)="OnClickProduct(product)" class="card-text">{{product.price | currency:'INR'}}</p>
+                        <div style="display: flex;justify-content: center;">
+                            <button (click)="addToCart(product)" class="addCart">
+                                <span class="addToCart">Add to Cart</span>
+                                <span class="addToCartIcon fa-solid fa-cart-arrow-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
