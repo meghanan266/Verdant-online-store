@@ -51,7 +51,7 @@ export class OrderService {
       "key": "rzp_test_anzIjjz2Vd1MvW", // Enter the Key ID generated from the Dashboard
       "amount": res.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
-      "name": "Megh Corp", //your business name
+      "name": "Verdant", //your business name
       "description": "Test Transaction",
       "image": "/src/assets/images/logo.png",
       "order_id": res.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1

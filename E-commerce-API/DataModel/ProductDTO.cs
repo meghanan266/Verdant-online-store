@@ -6,7 +6,8 @@
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public int Price { get; set; }
-        public string[] PictureUrl { get; set; }
+        public List<string> PictureUrl { get; set; }
         public string ProductQuantity { get; set; }
+        public int RowStatus { get; set; }
     }
 }

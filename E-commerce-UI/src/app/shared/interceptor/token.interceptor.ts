@@ -50,7 +50,7 @@ export class TokenInterceptor implements HttpInterceptor {
         return throwError(() => {
           console.warn("Token is expired");
           this.userService.logOut();
-          // location.reload();
+          location.reload();
         })
       })
     );

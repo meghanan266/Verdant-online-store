@@ -14,10 +14,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { StoryComponent } from './story/story.component';
 import { VideosComponent } from './videos/videos.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard, RedirectGuard } from './guards/auth.guard';
+import { DashboardProductComponent } from './dashboard-product/dashboard-product.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, pathMatch: 'full'
+    path: '', component: HomeComponent, pathMatch: 'full', canActivate: [RedirectGuard]
+  },
+  {
+    path: 'home', component: HomeComponent, pathMatch: 'full'
   },
   {
     path: 'products', component: ProductsComponent, pathMatch: 'full'
@@ -60,7 +66,14 @@ const routes: Routes = [
   },
   {
     path: 'reset-pwd', component: ResetPasswordComponent, pathMatch: 'full'
-  }
+  },
+  {
+    path: 'dashboard', component: DashboardComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'Admin' },
+  },
+  {
+    path: 'dashboard/products', component: DashboardProductComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'Admin' },
+  },
+
 ];
 
 @NgModule({

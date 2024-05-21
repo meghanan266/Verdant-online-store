@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
         type: 'success',
         message: 'Saved Successfully!'
       };
-      // setTimeout(() => { location.reload() }, 3000);
+      setTimeout(() => { location.reload() }, 3000);
     });
   }
 

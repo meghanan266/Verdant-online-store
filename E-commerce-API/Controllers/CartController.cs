@@ -3,12 +3,12 @@ using E_commerce_API.Domain.Models;
 using E_commerce_API.Repository.Interface;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;  
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace E_commerce_API.Controllers
 {
-    [Route("api/[controller] ")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CartController : ControllerBase
     {

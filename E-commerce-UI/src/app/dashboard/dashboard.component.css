@@ -1,0 +1,32 @@
+#dashboard .overview .data {
+    /* background-color: #e4e3de; */
+    background-color: #ab9781;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+#dashboard .overview .data h4,h6 {
+    font-weight: 900;
+    margin: 0;
+}
+
+#dashboard .overview .data h4 {
+    padding-top: 0.5rem;
+}
+
+#dashboard .overview {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#dashboard .overview i {
+    /* background-color: #a8b8ad;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #536774; */
+
+    background-color: #dbddd6;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #7c6c5b;
+}

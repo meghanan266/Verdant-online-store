@@ -35,6 +35,7 @@ export class CartComponent implements OnInit {
   }
 
   public removeCartItem(cartItem: CartItem) {
+    this.cart.cartItems.splice(this.cart.cartItems.findIndex(c => c.product.productId == cartItem.product.productId), 1);
     this.cartService.removeCartItem(cartItem);
   }
 

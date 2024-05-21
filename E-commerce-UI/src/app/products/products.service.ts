@@ -29,4 +29,8 @@ export class ProductsService {
   public addReview(review: Review) {
     return this.http.post(this.baseUrl + "add-review", review);
   }
+
+  public saveProduct(productList: Product[]): Observable<Product[]> {
+    return this.http.post<Product[]>(this.baseUrl + "save-product", productList);
+  }
 }

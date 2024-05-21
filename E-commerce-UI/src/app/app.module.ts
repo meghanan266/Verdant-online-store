@@ -27,6 +27,8 @@ import { VideosComponent } from './videos/videos.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { StoryComponent } from './story/story.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardProductComponent } from './dashboard-product/dashboard-product.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     VideosComponent,
     ContactUsComponent,
     StoryComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent,
+    DashboardProductComponent
   ],
   imports: [
     BrowserModule,

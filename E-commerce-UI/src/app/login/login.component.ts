@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         type: 'success',
         message: 'Logged In Successfully!'
       };
+      localStorage.setItem("localcart", null);;
       this.userService.storeToken(res.accessToken);
       this.userService.storeRefreshToken(res.refreshToken);
       this.userService.user.subscribe(u => { this.user = u; })
@@ -90,7 +91,7 @@ export class LoginComponent implements OnInit {
       this.signUpForm.reset();
       this.isSignUp = false;
       this.userService.storeToken(res.token);
-      setTimeout(() => { this.router.navigate(['']) }, 3000);
+      setTimeout(() => { this.router.navigate(['home']) }, 3000);
     });
   }
 

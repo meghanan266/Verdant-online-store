@@ -18,7 +18,7 @@ namespace E_commerce_API.Controllers
         public ProductController(IProductRepository productRepository, IUserRepository userRepository)
         {
             this.productRepository = productRepository;
-            this.userRepository = userRepository;    
+            this.userRepository = userRepository;
         }
 
         [HttpGet]
@@ -34,7 +34,7 @@ namespace E_commerce_API.Controllers
         {
             return this.productRepository.GetProduct(productId);
         }
-        
+
         [HttpGet]
         [Route("get-review/{productId}")]
         public List<ReviewDTO> GetReview(int productId)
@@ -54,6 +54,13 @@ namespace E_commerce_API.Controllers
                 return 200;
             }
             return 404;
+        }
+
+        [HttpPost, Authorize]
+        [Route("save-product")]
+        public List<ProductDto> SaveProduct(List<ProductDto> products)
+        {
+            return productRepository.SaveProduct(products);
         }
     }
 }

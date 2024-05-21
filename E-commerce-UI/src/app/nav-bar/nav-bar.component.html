@@ -3,7 +3,18 @@
         <img src="../../assets/images/logo.png" class="brand-logo" alt="Logo">
         <img style="width:10vw;" src="../../assets/images/logo-1.png" alt="logo">
     </a>
-    <div class="menu">
+    <div class="menu" *ngIf="user?.role === 'Admin'">
+        <ul class="nav justify-content-center" [class.menuDropDown]="menuIconVisible">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/dashboard"><i class="fa fa-home"></i>
+                    Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard/products"><i class="fa fa-store"></i> Products</a>
+            </li>
+        </ul>
+    </div>
+    <div class="menu" *ngIf="user?.role !== 'Admin'">
         <ul class="nav justify-content-center" [class.menuDropDown]="menuIconVisible">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" routerLink=""><i class="fa fa-home"></i>
@@ -34,16 +45,17 @@
             </li>
             <li *ngIf="isLoggedIn" class="nav-item dropdown">
                 <a class="nav-link"><i class="fa fa-user"></i>
-                    <span>Hi, {{userName}}!</span>
+                    <span>Hi, {{user.userName}}!</span>
                 </a>
                 <div class="dropdown-content">
                     <a routerLink="/profile"><i class="fa fa-user"></i> My Profile</a>
-                    <a routerLink="/orders"><i class="fa fa-box"></i> My Orders</a>
-                    <a routerLink="address"><i class="fa-solid fa-map-location-dot"></i> Manage Address</a>
+                    <a *ngIf="user?.role !== 'Admin'" routerLink="/orders"><i class="fa fa-box"></i> My Orders</a>
+                    <a *ngIf="user?.role !== 'Admin'" routerLink="address"><i class="fa-solid fa-map-location-dot"></i>
+                        Manage Address</a>
                     <a (click)="onClickLogOut()"><i class="fa fa-arrow-right-from-bracket"></i> Logout</a>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="user?.role !== 'Admin'">
                 <a style="position: relative;" class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart">
                         <div *ngIf="totalCartItems > 0" class="totalCartItems">{{totalCartItems}}</div>
                     </i>

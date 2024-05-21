@@ -26,6 +26,16 @@ export class UserService {
     return this.http.post<Token>(url, user);
   }
 
+  public getUserRole(): string {
+    const userRole = this.user.value.role;
+    return userRole;
+  }
+
+  public hasRole(role: string): boolean {
+    const userRole = this.getUserRole();
+    return userRole === role;
+  }
+  
   public addUser(user: User): Observable<User> {
     const url = `${this.baseUrl}/add-user`;
     return this.http.post<User>(url, user);

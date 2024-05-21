@@ -116,7 +116,7 @@ namespace E_commerce_API.Repository
                                         where c.Product_Id == o.Product_Id
                                         select new ProductDto
                                         {
-                                            PictureUrl = c.Picture_Url.Split(';', StringSplitOptions.None),
+                                            PictureUrl = c.Picture_Url.Split(';', StringSplitOptions.None).ToList(),
                                             ProductName = c.Product_Name,
                                         }).ToList(),
                         }).OrderByDescending(o => o.OrderDate).ToList();

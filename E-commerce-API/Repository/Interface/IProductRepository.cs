@@ -9,5 +9,6 @@ namespace E_commerce_API.Repository.Interface
         public ProductDto GetProduct(int productId);
         public int AddReview(ReviewDTO review, int userId);
         public List<ReviewDTO> GetReview(int productId);
+        public List<ProductDto> SaveProduct(List<ProductDto> products);
     }
 }
