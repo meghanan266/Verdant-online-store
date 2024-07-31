@@ -12,5 +12,10 @@ namespace E_commerce_API.Domain.Models
         public string Razor_Pay_Order_Id { get; set; }
         public DateTime Order_Date { get; set; }
         public string Delivery_Address { get; set; }
+        public bool Delivery_Status { get; set; }
+        public string Delivery_Tracking_Id { get; set; }
+        public int Quantity { get; set; }
+        public DateTime? Modified_Date { get; set; }
+        public int Product_Price {  get; set; }
     }
 }

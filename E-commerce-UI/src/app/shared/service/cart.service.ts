@@ -20,7 +20,13 @@ export class CartService {
     if (JSON.parse(this.getLocalCart()) as Cart != null)
       this.cart.next(JSON.parse(this.getLocalCart()) as Cart);
     if (this.userService.isLoggedIn() && this.cart.value.cartItems.length == 0)
-      this.getAllCartItems().subscribe(c => { this.cart.next(c) });
+      this.getAllCartItems().subscribe(c => {
+        c.totalMrp = c.cartItems.map(c => c.product.price * c.quantity).reduce((p, c) => p + c, 0);
+        c.totalPrice = c.cartItems.reduce((total, { product: { price, discount }, quantity }) => {
+          return total + (price * quantity * (1 - discount / 100));
+        }, 0);
+        this.cart.next(c);
+      });
   }
 
   public addToCart(selectedProduct: Product) {
@@ -47,9 +53,10 @@ export class CartService {
     }
     cartTemp.cartItems = cartItemList;
     cartTemp.totalPrice = 0;
-    cartTemp.cartItems.forEach(c => {
-      cartTemp.totalPrice += c.product.price * c.quantity;
-    });
+    cartTemp.totalPrice = cartTemp.cartItems.reduce((total, { product: { price, discount }, quantity }) => {
+      return total + (price * quantity * (1 - discount / 100));
+    }, 0);
+    cartTemp.totalMrp = cartTemp.cartItems.map(c => c.product.price * c.quantity).reduce((p, c) => p + c, 0);
     this.cart.next(cartTemp);
     if (!this.userService.isLoggedIn()) {
       this.setLocalCart(this.cart.value);
@@ -71,10 +78,10 @@ export class CartService {
   public removeCartItem(cartItem: CartItem) {
     const cartTemp = this.cart.value;
     cartTemp.totalPrice = 0;
-    cartTemp.cartItems.splice(cartTemp.cartItems.findIndex(c => c.product.productId == cartItem.product.productId), 1);
-    cartTemp.cartItems.forEach(c => {
-      cartTemp.totalPrice += c.product.price * c.quantity;
-    });
+    cartTemp.totalPrice = cartTemp.cartItems.reduce((total, { product: { price, discount }, quantity }) => {
+      return total + (price * quantity * (1 - discount / 100));
+    }, 0);
+    cartTemp.totalMrp = cartTemp.cartItems.map(c => c.product.price * c.quantity).reduce((p, c) => p + c, 0);
     this.cart.next(cartTemp);
     if (!this.userService.isLoggedIn()) {
       this.setLocalCart(this.cart.value);

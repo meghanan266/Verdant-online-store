@@ -5,4 +5,5 @@ export class Cart {
     public cartItems: CartItem[] = [];
     public userId: number;
     public totalPrice: number = 0;
+    public totalMrp: number = 0;
 }

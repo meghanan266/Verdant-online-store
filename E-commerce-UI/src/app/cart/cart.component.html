@@ -37,7 +37,12 @@
                     </div>
                 </div>
                 <div class="col-sm-2 sub-total">
-                    <h6>{{cartItem.product.price * cartItem.quantity | currency:'INR'}}</h6>
+                    <h6>
+                        <span [ngStyle]="{'text-decoration': cartItem.product.discount !== null ? 'line-through' : ''}">
+                            {{cartItem.product.price * cartItem.quantity | currency:'INR'}} </span>
+                        <span *ngIf="cartItem.product.discount !== null">{{cartItem.product.price * cartItem.quantity *
+                            (1 - cartItem.product.discount / 100) | currency:'INR'}}</span>
+                    </h6>
                 </div>
                 <div class="col-sm-1">
                     <div class="remove-item">
@@ -53,7 +58,7 @@
                     Total MRP
                 </div>
                 <div class="col-5">
-                    {{cart.totalPrice | currency:'INR'}}
+                    {{cart.totalMrp | currency:'INR'}}
                 </div>
             </div>
             <div class="row">
@@ -61,7 +66,17 @@
                     Shipping
                 </div>
                 <div class="col-5">
-                    {{shippingCharge | currency:'INR'}}
+                    <span style="text-decoration: line-through;">
+                        {{shippingCharge | currency: 'INR'}}
+                    </span> FREE
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    Total Discount
+                </div>
+                <div class="col-5">
+                    {{cart.totalMrp - cart.totalPrice| currency: 'INR'}}
                 </div>
             </div>
             <div class="row total-amt">
@@ -69,7 +84,7 @@
                     <h5><b>Total Amount</b></h5>
                 </div>
                 <div class="col-5">
-                    <h5><b>{{cart.totalPrice + shippingCharge | currency:'INR'}}</b></h5>
+                    <h5><b>{{cart.totalPrice.toFixed(0)| currency: 'INR':'symbol':'1.0-0'}}</b></h5>
                 </div>
             </div>
             <div class="proceed">

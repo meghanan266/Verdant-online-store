@@ -9,5 +9,6 @@
         public List<string> PictureUrl { get; set; }
         public string ProductQuantity { get; set; }
         public int RowStatus { get; set; }
+        public int? Discount { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 #login {
     background-image: url("../../assets/images/flower-bg.png");
-    color: #314254;
+    color: #1e4617;
     background-repeat: no-repeat;
     background-position-x: left;
     background-position-y: bottom;
@@ -26,8 +26,8 @@
     outline: none;
     border: none;
     border-bottom: 2px solid #999;
-    background-color: #b6c4bc;
-    color: #314254;
+    background-color: #afbca3;
+    color: #1e4617;
     opacity: 0.5;
 }
 
@@ -58,7 +58,7 @@
 
 #login .noAccount {
     padding-top: 3rem;
-    color: #314254;
+    color: #1e4617;
 }
 
 #login .noAccount .link {
@@ -70,7 +70,7 @@
 
 #login button[type=submit],
 #modal button[type=submit] {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     width: 30%;
     padding: 0.5rem;

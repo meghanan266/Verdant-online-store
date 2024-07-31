@@ -1,0 +1,116 @@
+#dashboard .overview .data {
+    /* background-color: #e4e3de; */
+    background-color: #ab9781;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+#dashboard .overview .data h4,
+h6 {
+    font-weight: 900;
+    margin: 0;
+}
+
+#dashboard .overview .data h4 {
+    padding-top: 0.5rem;
+}
+
+#dashboard .overview {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+
+#dashboard .overview i {
+    /* background-color: #a8b8ad;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #536774; */
+
+    background-color: #dbddd6;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #7c6c5b;
+}
+
+#dashboard td,
+#dashboard th {
+    text-align: center;
+    padding: 5px 10px;
+}
+
+#dashboard td {
+    box-shadow: 0 0 1px;
+    border: 1px solid grey;
+}
+
+#dashboard #order-info {
+    width: 90vw;
+    height: 80vh;
+    overflow-y: scroll;
+    margin: auto;
+}
+
+#dashboard thead {
+    position: sticky;
+    top: 0;
+    background-color: #ab9781;
+    z-index: 1;
+}
+
+#dashboard th {
+    background-color: #ab9781;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#dashboard #order-info::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#dashboard #order-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+    /* Background of the scrollbar track */
+}
+
+#dashboard #order-info::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+#dashboard #order-info::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#dashboard .actions {
+    /* text-align: end;
+    width: 90vw;
+    margin: auto;
+    margin-top: 4rem; */
+}
+
+#dashboard .actions button {
+    background-color: #1e4617;
+    color: #f5f2ee;
+    /* width: 6%; */
+    padding: 0.3rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
+
+#dashboard input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+#dashboard .header-template {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+}

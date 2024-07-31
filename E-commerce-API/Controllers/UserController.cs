@@ -84,7 +84,7 @@ namespace E_commerce_API.Controllers
         }
 
         [HttpPost("send-reset-email")]
-        public IActionResult SendEmail([FromBody]string email)
+        public IActionResult SendEmail([FromBody] string email)
         {
             if (!string.IsNullOrEmpty(email))
             {
@@ -132,6 +132,15 @@ namespace E_commerce_API.Controllers
                 Message = "User doesn't exist"
             });
 
+        }
+
+        [HttpGet, Authorize]
+        [Route("get-all-users")]
+        public List<UserDto> GetAllUsers()
+        {
+            var email = User.FindFirstValue(ClaimTypes.Email);
+            this.userId = this.userRepository.GetUserIdFromToken(email);
+            return this.userRepository.GetAllUsers(userId);
         }
     }
 }

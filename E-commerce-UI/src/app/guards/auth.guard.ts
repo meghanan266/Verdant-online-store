@@ -14,7 +14,7 @@ export class RedirectGuard implements CanActivate {
 
     if (userRole === 'Admin') {
       this.router.navigate(['dashboard']);
-    } else if (userRole === 'User') {
+    } else {
       this.router.navigate(['home']);
     }
     return false;

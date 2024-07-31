@@ -16,5 +16,6 @@ namespace E_commerce_API.Repository.Interface
         public int GetUserIdFromToken(string email);
         public int SendEmail(string email);
         public int ResetPassword(ResetPasswordDto resetPasswordDto);
+        public List<UserDto> GetAllUsers(int userId);
     }
 }

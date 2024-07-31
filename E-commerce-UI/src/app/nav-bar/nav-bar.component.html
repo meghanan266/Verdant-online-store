@@ -1,7 +1,7 @@
 <div id="nav-bar" class="fixed-top">
     <a class="navbar-brand" routerLink="">
-        <img src="../../assets/images/logo.png" class="brand-logo" alt="Logo">
-        <img style="width:10vw;" src="../../assets/images/logo-1.png" alt="logo">
+        <img src="../../assets/images/Logo Final 1.png" class="brand-logo" alt="Logo">
+        <img style="width:calc(8vw + 1rem)" src="../../assets/images/Logo Final 2.png" alt="logo">
     </a>
     <div class="menu" *ngIf="user?.role === 'Admin'">
         <ul class="nav justify-content-center" [class.menuDropDown]="menuIconVisible">
@@ -11,6 +11,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/dashboard/products"><i class="fa fa-store"></i> Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard/users"><i class="fa fa-user"></i> Users</a>
             </li>
         </ul>
     </div>

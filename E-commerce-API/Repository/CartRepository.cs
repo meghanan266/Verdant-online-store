@@ -52,7 +52,7 @@ namespace E_commerce_API.Repository
             };
             cartDto.CartItems.ForEach(c =>
             {
-                cartDto.TotalPrice += c.Quantity * c.Product.Price;
+                cartDto.TotalPrice += c.Quantity * c.Product.Price * (1 - (c.Product.Discount != null ? (int)c.Product.Discount : 0) / 100);
             });
             return cartDto;
         }

@@ -46,7 +46,7 @@ export class ProductItemComponent implements OnInit {
     });
     this.productService.getReview(this.selectedProductId).subscribe((res: Review[]) => {
       this.reviewList = res;
-      this.avgReview = Math.round((this.reviewList.map(r => r.reviewRange).reduce( ( p, c ) => p + c, 0 ) / this.reviewList.length) / 20);
+      this.avgReview = Math.round((this.reviewList.map(r => r.reviewRange).reduce((p, c) => p + c, 0) / this.reviewList.length) / 20);
     });
   }
 

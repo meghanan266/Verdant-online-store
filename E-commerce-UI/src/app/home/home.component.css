@@ -12,8 +12,8 @@
     font-size: 3vw;
     font-weight: 500;
     width: 40%;
-    padding: 0 4%;
     animation: blur 3s forwards;
+    padding: 20vh 0 10vh 0;
 }
 
 .hair-img img {
@@ -126,7 +126,7 @@
 
 .best-seller h1 {
     position: absolute;
-    background-color: #b6c4bc;
+    background-color: #afbca3;
     padding: 0 2rem;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -147,6 +147,7 @@
     width: 25vw;
     height: 15vw;
     border-radius: 30px;
+    object-fit: contain;
 }
 
 .best-seller-grid .item {
@@ -167,7 +168,7 @@
     border-radius: 17px 40px 40px 17px;
     filter: url(#gooey);
     position: relative;
-    background-color: #ededed;
+    background-color: #efebe1;
     margin-top: 2rem;
 }
 
@@ -184,7 +185,7 @@
 }
 
 #gooey-button .bubbles .bubble {
-    background-color: #ededed;
+    background-color: #efebe1;
     border-radius: 100%;
     position: absolute;
     top: 0;
@@ -591,4 +592,34 @@
         transform: translate(0, 0);
         opacity: 0;
     }
+}
+
+.video-bg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    top: -10vh;
+}
+
+video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    /* Place the video behind the content */
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    /* Ensure the text is visible over the video */
+    text-align: center;
+    padding: 20px;
+    /* Additional styling for your content */
 }

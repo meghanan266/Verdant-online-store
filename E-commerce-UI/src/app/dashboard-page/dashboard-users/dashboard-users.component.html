@@ -1,0 +1,23 @@
+<div id="dashboard-user">
+    <h1 style="text-align: center;">USERS DETAILS</h1>
+    <div class="users-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usersList;">
+                    <td>{{user.userId}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

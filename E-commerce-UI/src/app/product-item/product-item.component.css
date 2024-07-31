@@ -1,11 +1,11 @@
 #product-view {
-    color: #314254;
+    color: #1e4617;
     display: flex;
     flex-wrap: wrap;
 }
 
 #product-view .addCart button {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     border-radius: 0.5rem;
     text-decoration: none;
@@ -117,14 +117,14 @@ video {
     width: 20px;
     height: 20px;
     border-radius: 20px;
-    background: #314254;
+    background: #1e4617;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #314254;
+    background: #1e4617;
     cursor: pointer;
 }
 
@@ -146,7 +146,7 @@ video {
 }
 
 .submit-review button {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     border-radius: 2rem;
     padding: 0.5rem 3rem;

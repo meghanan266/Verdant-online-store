@@ -1,4 +1,5 @@
-.order-success h1, h4 {
+.order-success h1,
+h4 {
     text-align: center;
 }
 
@@ -6,6 +7,21 @@
     display: flex;
     justify-content: center;
     height: 40vh;
+    animation: rotateAndScale 5s forwards;
+}
+
+@keyframes rotateAndScale {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    30% {
+        transform: rotate(180deg) scale(0);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
 }
 
 @media screen and (max-width: 1050px) {
@@ -15,7 +31,7 @@
 }
 
 .orders-button button {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     width: 100%;
     padding: 0.5rem;
@@ -34,6 +50,8 @@
     width: calc(50vw + 10rem);
     margin: auto;
     margin-top: 3rem;
+    max-height: 70vh;
+    overflow: auto;
 }
 
 .order-card {
@@ -43,8 +61,6 @@
     border-radius: 5px;
     display: flex;
     gap: 1rem;
-    align-items: flex-start;
-    flex-wrap: wrap;
     margin-bottom: 1rem;
 }
 
@@ -55,4 +71,24 @@
 .order-card h6 {
     font-weight: 600;
     display: inline;
+}
+
+.order-grid::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.order-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+    /* Background of the scrollbar track */
+}
+
+.order-grid::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.order-grid::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

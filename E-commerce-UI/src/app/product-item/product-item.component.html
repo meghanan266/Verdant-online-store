@@ -25,7 +25,17 @@
     </div>
     <div class="col" style="margin-left: 3rem;">
         <h1>{{selectedProduct?.productName}} Hairoil - {{selectedProduct?.productQuantity}}</h1>
-        <h3 style="color: #f5f2ee;">{{selectedProduct?.price | currency:'INR'}}/-</h3>
+        <!-- <h3>{{selectedProduct?.price | currency:'INR'}}/-</h3> -->
+        <h3 style="color: #f5f2ee;">
+            <span
+                [ngStyle]="{'text-decoration': selectedProduct?.discount !== null ? 'line-through' : ''}">{{selectedProduct?.price
+                | currency:'INR'}} </span>
+            <span *ngIf="selectedProduct?.discount !== null">{{selectedProduct?.price * (1 - selectedProduct?.discount /
+                100) |
+                currency:'INR'}} ({{selectedProduct?.discount}}% Off)</span>
+        </h3>
+
+
         <div class="product-desc">
             <h3>Description</h3>
             <div>
@@ -44,7 +54,8 @@
 <div style="margin-top: 5rem;" class="review-section">
     <app-alert [alert]="alert"></app-alert>
     <h1 style="text-align: center; margin-bottom: 3rem;">Product Reviews
-        <h6 *ngIf="reviewList?.length > 0">({{avgReview}} <i class="fa-solid fa-star"></i> | {{reviewList?.length}} buyers)</h6>
+        <h6 *ngIf="reviewList?.length > 0">({{avgReview}} <i class="fa-solid fa-star"></i> | {{reviewList?.length}}
+            buyers)</h6>
     </h1>
     <div *ngIf="reviewList?.length == 0" class="no-review">
         <p>There are no reviews yet for this product.</p>

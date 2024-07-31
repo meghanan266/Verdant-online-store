@@ -1,0 +1,53 @@
+#dashboard-user table {
+    width: 100%;
+    text-align: center;
+}
+
+#dashboard-user td,
+#dashboard-user th {
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+#dashboard-user .users-table {
+    width: 90%;
+    margin: auto;
+    max-height: 60vh;
+    margin-top: 4rem;
+    overflow-y: auto;
+}
+
+#dashboard-user thead {
+    position: sticky;
+    top: 0;
+    background-color: #ab9781;
+    z-index: 1;
+}
+
+#dashboard-user th {
+    background-color: #ab9781;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#dashboard-user .users-table::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#dashboard-user .users-table::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+    /* Background of the scrollbar track */
+}
+
+#dashboard-user .users-table::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+#dashboard-user .users-table::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

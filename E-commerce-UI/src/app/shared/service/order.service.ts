@@ -20,7 +20,6 @@ export class OrderService {
 
   private baseUrl = `${environment.apiBaseUrl}api/order`;
   private user: User;
-  private shippingCharge = 100;
   public selectedAddress = new BehaviorSubject<Address>(new Address());
 
   constructor(private http: HttpClient, private cartService: CartService, private userService: UserService, private router: Router) {
@@ -31,7 +30,7 @@ export class OrderService {
     const url = `${this.baseUrl}/create-order`;
     let totalPrice;
     this.cartService.cart.subscribe(res => {
-      totalPrice = res.totalPrice + this.shippingCharge;
+      totalPrice = Math.round(res.totalPrice);
     });
     const options = {
       params: new HttpParams().set('totalPrice', totalPrice)
@@ -85,9 +84,9 @@ export class OrderService {
     const url = `${this.baseUrl}/store-success-order`;
     let successfulOrder = new SuccessfulOrder();
     successfulOrder.razorPayOrderId = razorpay_order_id;
-    successfulOrder.productList = this.cartService.cart.value.cartItems.map(c => c.product);
-    successfulOrder.deliveryAddress = this.selectedAddress.value.address + "," + this.selectedAddress.value.locality + "," +
-      this.selectedAddress.value.city + "," + this.selectedAddress.value.state + "-" + this.selectedAddress.value.pincode;
+    successfulOrder.productList = this.cartService.cart.value.cartItems;
+    successfulOrder.deliveryAddress = this.selectedAddress.value.address + ", " + this.selectedAddress.value.locality + ", " +
+      this.selectedAddress.value.city + ", " + this.selectedAddress.value.state + " - " + this.selectedAddress.value.pincode;
     this.http.post(url, successfulOrder).subscribe(() => {
       this.cartService.cart.next(new Cart);
       this.cartService.emptyCart().subscribe(() => location.reload());

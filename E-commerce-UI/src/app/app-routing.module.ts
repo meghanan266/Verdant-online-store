@@ -14,9 +14,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { StoryComponent } from './story/story.component';
 import { VideosComponent } from './videos/videos.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard-page/dashboard/dashboard.component';
 import { AuthGuard, RedirectGuard } from './guards/auth.guard';
-import { DashboardProductComponent } from './dashboard-product/dashboard-product.component';
+import { DashboardProductComponent } from './dashboard-page/dashboard-product/dashboard-product.component';
+import { DashboardUsersComponent } from './dashboard-page/dashboard-users/dashboard-users.component';
+import { QuickLinksComponent } from './quick-links/quick-links.component';
 
 const routes: Routes = [
   {
@@ -41,16 +43,16 @@ const routes: Routes = [
     path: 'cart', component: CartComponent, pathMatch: 'full'
   },
   {
-    path: 'orders/:status', component: OrderComponent, pathMatch: 'full'
+    path: 'orders/:status', component: OrderComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'User' }
   },
   {
-    path: 'orders', component: OrderComponent, pathMatch: 'full'
+    path: 'orders', component: OrderComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'User' }
   },
   {
-    path: 'address', component: AddressComponent, pathMatch: 'full'
+    path: 'address', component: AddressComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'User' }
   },
   {
-    path: 'cart/address', component: AddressComponent, pathMatch: 'full'
+    path: 'cart/address', component: AddressComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'User' }
   },
   {
     path: 'story', component: StoryComponent, pathMatch: 'full'
@@ -73,7 +75,21 @@ const routes: Routes = [
   {
     path: 'dashboard/products', component: DashboardProductComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'Admin' },
   },
-
+  {
+    path: 'dashboard/users', component: DashboardUsersComponent, pathMatch: 'full', canActivate: [AuthGuard], data: { role: 'Admin' },
+  },
+  {
+    path: 'privacy-policy', component: QuickLinksComponent, pathMatch: 'full'
+  },
+  {
+    path: 'return-policy', component: QuickLinksComponent, pathMatch: 'full'
+  },
+  {
+    path: 'shipping-policy', component: QuickLinksComponent, pathMatch: 'full'
+  },
+  {
+    path: 'term-conditions', component: QuickLinksComponent, pathMatch: 'full'
+  }
 ];
 
 @NgModule({

@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         type: 'success',
         message: 'Logged In Successfully!'
       };
-      localStorage.setItem("localcart", null);;
+      // localStorage.setItem("localcart", null);;
       this.userService.storeToken(res.accessToken);
       this.userService.storeRefreshToken(res.refreshToken);
       this.userService.user.subscribe(u => { this.user = u; })

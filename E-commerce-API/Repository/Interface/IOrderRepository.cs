@@ -5,10 +5,12 @@ namespace E_commerce_API.Repository.Interface
 {
     public interface IOrderRepository
     {
-        public string CreateOrder(int totalPrice);
+        public string CreateOrder(double totalPrice);
         public void StoreTempOrderId(string tempOrderId, int userId);
         public bool MakePayment(PaymentResponseDto paymentResponse);
         public void StoreSuccessfulOrder(SuccessfulOrderDTO successfulOrder, int userId);
         public List<SuccessfulOrderDTO> GetMyOrders(int userId);
+        public List<SuccessfulOrderDTO> GetAllOrders(string filterValue);
+        List<SuccessfulOrderDTO> SaveDashboardOrder(List<SuccessfulOrderDTO> successfulOrder);
     }
 }

@@ -39,7 +39,7 @@
 }
 
 button[type='submit'] {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     padding: 0.5rem 2rem;
     border-radius: 1rem;
@@ -142,7 +142,7 @@ button[type='submit'] {
 }
 
 #empty-cart .shop-now {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     border-radius: 2rem;
     width: 10rem;

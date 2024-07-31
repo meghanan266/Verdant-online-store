@@ -23,7 +23,7 @@ namespace E_commerce_API.Controllers
         }
 
         [HttpGet("create-order")]
-        public string CreateOrder(int totalPrice)
+        public string CreateOrder(double totalPrice)
         {
             return this.orderRepository.CreateOrder(totalPrice);
         }
@@ -61,6 +61,20 @@ namespace E_commerce_API.Controllers
             var email = User.FindFirstValue(ClaimTypes.Email);
             this.userId = this.userRepository.GetUserIdFromToken(email);
             return this.orderRepository.GetMyOrders(userId);
+        }
+        
+        [HttpGet, Authorize]
+        [Route("get-all-orders")]
+        public List<SuccessfulOrderDTO> GetAllOrders(string filterValue)
+        {
+            return this.orderRepository.GetAllOrders(filterValue);
+        }
+
+        [HttpPost, Authorize]
+        [Route("save-dashboard-order")]
+        public IActionResult SaveDashboardOrder(List<SuccessfulOrderDTO> successfulOrder)
+        {
+            return Ok(this.orderRepository.SaveDashboardOrder(successfulOrder));
         }
     }
 }

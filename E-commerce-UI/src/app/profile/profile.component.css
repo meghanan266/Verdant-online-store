@@ -1,6 +1,6 @@
 #profile {
     background-image: url("../../assets/images/flower-bg.png");
-    color: #314254;
+    color: #1e4617;
     background-repeat: no-repeat;
     background-position-x: left;
     background-position-y: bottom;
@@ -13,7 +13,7 @@
     left: 12px;
     padding: 0px 3px;
     position: absolute;
-    background-color: #b6c4bc;
+    background-color: #afbca3;
 }
 
 #profile .form-group input {
@@ -23,13 +23,13 @@
     height: auto;
     color: #282c3f;
     width: 100%;
-    background-color: #b6c4bcb5;
+    background-color: #afbca3b5;
 }
 
 #profile .form-group {
     margin-bottom: 16px;
     position: relative;
-    color: #314254;
+    color: #1e4617;
 }
 
 #profile .form-group input:focus {
@@ -46,7 +46,7 @@
 }
 
 #profile button[type=submit] {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     width: 30%;
     padding: 0.5rem;

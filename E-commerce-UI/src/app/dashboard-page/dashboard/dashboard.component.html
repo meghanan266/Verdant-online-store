@@ -1,0 +1,73 @@
+<div id="dashboard">
+    <h1 style="text-align: center;">ORDERS</h1>
+
+    <div class="overview">
+        <div class="data row">
+            <span class="col-lg-3"><i class="fa-solid fa-sack-dollar"></i></span>
+            <h6 class="col-lg-9">Total Income <br>
+                <h4>Rs. {{totalIncome}}</h4>
+            </h6>
+        </div>
+        <div class="data row">
+            <span class="col-lg-3"><i class="fa-solid fa-bag-shopping"></i></span>
+            <h6 class="col-lg-9">Total Orders <br>
+                <h4>{{orders?.length}}</h4>
+            </h6>
+        </div>
+        <div class="data row">
+            <span class="col-lg-3"><i class="fa-solid fa-user"></i></span>
+            <h6 class="col-lg-9">Total Customers <br>
+                <h4>{{totalUsers}}</h4>
+            </h6>
+        </div>
+    </div>
+
+    <div class="header-template">
+        <div class="filters">
+            <select (change)="onSelectionChange($event)">
+                <option value="" selected>Filter Delivery</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <div class="actions">
+            <button (click)="isEditEnabled=true" *ngIf="!isEditEnabled">Edit</button>
+            <button (click)="onClickCancel()" *ngIf="isEditEnabled">Cancel</button>
+            <button type="submit" (click)="save()" *ngIf="isEditEnabled">Save</button>
+        </div>
+    </div>
+
+    <div id="order-info">
+        <table style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Delivery Status</th>
+                    <th>User Id</th>
+                    <th>Product Name</th>
+                    <th>Delivery Address</th>
+                    <th>Order Date</th>
+                    <th>Quantity</th>
+                    <th>Delivery Tracking Id</th>
+                    <th>Razorpay Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders; let i = index">
+                    <td style="width: 10vw;">{{order.successfulOrderId}}</td>
+                    <td style="width: 1vw;"><input type="checkbox" [(ngModel)]="order.deliveryStatus"
+                            [disabled]="!isEditEnabled"></td>
+                    <td style="width: 10vw;">{{order.userId}}</td>
+                    <td style="width: 10vw;">{{order.product.product.productName}}</td>
+                    <td style="width: 5vw;">{{order.deliveryAddress}}</td>
+                    <td style="width: 2vw;">{{order.orderDate | date: 'dd/MM/yyyy'}}</td>
+                    <td style="width: 2vw;">{{order.product.quantity}}</td>
+                    <td style="width: 5vw;"><input type="text" [(ngModel)]="order.deliveryTrackingId"
+                            [disabled]="!isEditEnabled || (isEditEnabled && !order.deliveryStatus)"></td>
+                    <td style="width: 5vw;">{{order.razorPayOrderId}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

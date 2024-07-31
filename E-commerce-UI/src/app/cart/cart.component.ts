@@ -14,11 +14,14 @@ export class CartComponent implements OnInit {
 
   public cart: Cart;
   public shippingCharge = 100;
+
   constructor(private cartService: CartService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     if (this.userService.isLoggedIn()) {
-      this.cartService.cart.subscribe(res => this.cart = res);
+      this.cartService.cart.subscribe(res => {
+        this.cart = res;
+      });
     } else {
       this.cart = (JSON.parse(this.cartService.getLocalCart()) as Cart);
     }

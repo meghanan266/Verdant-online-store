@@ -4,7 +4,7 @@ using E_commerce_API.Domain.Models;
 
 namespace E_commerce_API.Helper
 {
-    public class MappingProfiles: Profile
+    public class MappingProfiles : Profile
     {
         public MappingProfiles()
         {
@@ -13,7 +13,8 @@ namespace E_commerce_API.Helper
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product_Name))
                 .ForMember(dest => dest.PictureUrl, opt => opt.MapFrom(src => src.Picture_Url.Split(';', StringSplitOptions.None)))
                 .ForMember(dest => dest.ProductDescription, opt => opt.MapFrom(src => src.Product_Description))
-                .ForMember(dest => dest.ProductQuantity, opt => opt.MapFrom(src => src.Product_Quantity));
+                .ForMember(dest => dest.ProductQuantity, opt => opt.MapFrom(src => src.Product_Quantity))
+                .ForMember(dest => dest.Discount, opt => opt.MapFrom(src => src.Discount));
 
         }
     }

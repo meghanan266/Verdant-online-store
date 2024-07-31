@@ -13,5 +13,6 @@ namespace E_commerce_API.Domain.Models
         public int Price { get; set; }
         public string Picture_Url { get; set; }
         public string Product_Quantity { get; set; }
+        public int? Discount { get; set; }
     }
 }

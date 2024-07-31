@@ -5,10 +5,11 @@ body {
     /* background-color: #89a0939c; */
     /* background-color: #89a093d6; */
     /* font-family: 'Amatic SC', cursive; */
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', cursive !important;
     /* font-family: 'Josefin Slab', serif; */
     /* font-family: 'Montserrat', sans-serif; */
-    background-color: #b6c4bc;
+    background-color: #afbca3;
+    /* color: #1e4617; */
 }
 
 app-nav-bar:has(+ router-outlet + app-home) #nav-bar {
@@ -21,4 +22,14 @@ app-faq~app-footer .footer {
     margin-top: 0 !important;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

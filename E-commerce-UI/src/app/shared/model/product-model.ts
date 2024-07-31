@@ -6,6 +6,7 @@ export class Product {
     productDescription: string;
     productQuantity: string;
     rowStatus?: RowStatus;
+    discount?: number;
 }
 
 export enum RowStatus {

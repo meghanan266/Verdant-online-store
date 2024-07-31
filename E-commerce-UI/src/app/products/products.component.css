@@ -1,6 +1,7 @@
 #product-page .card-img-top {
     width: 100%;
     height: 50%;
+    object-fit: contain;
 }
 
 .product-grid {
@@ -10,15 +11,15 @@
 }
 
 #product-page .card-body {
-    background-color: #b6c4bc;
-    color: #314254;
+    background-color: #efebe1;
+    color: #1e4617;
 }
 
 #product-page .card {
     height: calc(60vh - 4rem);
     margin-bottom: 1rem;
     text-decoration: none;
-    border: 1px solid #314254;
+    border: 1px solid #1e4617;
     position: relative;
 }
 
@@ -29,7 +30,7 @@
 }
 
 #product-page .addCart {
-    background-color: #314254;
+    background-color: #1e4617;
     color: #f5f2ee;
     border-radius: 0.5rem;
     text-decoration: none;

@@ -31,6 +31,7 @@ namespace E_commerce_API.Repository
                 PictureUrl = p.Picture_Url != null ? p.Picture_Url.Split(';', StringSplitOptions.None).ToList() : new List<string>(),
                 ProductDescription = p.Product_Description,
                 ProductQuantity = p.Product_Quantity,
+                Discount = p.Discount,
             }).ToList();
 
             return productList;
@@ -81,27 +82,38 @@ namespace E_commerce_API.Repository
 
         public List<ProductDto> SaveProduct(List<ProductDto> products)
         {
-            var newProducts = products.Where(p => p.RowStatus == Convert.ToInt16(RowStatus.NEW)).Select(p => new Product
+            if (products.Count(p => p.RowStatus == Convert.ToInt16(RowStatus.NEW)) > 0)
             {
-                Product_Name = p.ProductName,
-                Product_Description = p.ProductDescription,
-                Price = p.Price,
-                Product_Quantity = p.ProductQuantity
-            });
-            eCommerceDbContext.Products.AddRange(newProducts);
+                var newProducts = products.Where(p => p.RowStatus == Convert.ToInt16(RowStatus.NEW)).Select(p => new Product
+                {
+                    Product_Name = p.ProductName,
+                    Product_Description = p.ProductDescription,
+                    Price = p.Price,
+                    Product_Quantity = p.ProductQuantity,
+                    Discount = p.Discount,
+                });
+                eCommerceDbContext.Products.AddRange(newProducts);
+            }
 
             var deletedIds = products.Where(p => p.RowStatus == Convert.ToInt16(RowStatus.DELETED)).Select(p => p.ProductId).ToList();
-            var deletedProducts = eCommerceDbContext.Products.Where(pr => deletedIds.Contains(pr.Product_Id));
-            eCommerceDbContext.Products.RemoveRange(deletedProducts);
+            if (deletedIds.Count > 0)
+            {
+                var deletedProducts = eCommerceDbContext.Products.Where(pr => deletedIds.Contains(pr.Product_Id));
+                eCommerceDbContext.Products.RemoveRange(deletedProducts);
+            }
 
-            products.Where(p => p.RowStatus != Convert.ToInt16(RowStatus.NEW) || p.RowStatus == Convert.ToInt16(RowStatus.DELETED)).ToList().ForEach(p =>
+            if (products.Count(p => p.RowStatus == Convert.ToInt16(RowStatus.EDITED)) > 0)
+            {
+                products.Where(p => p.RowStatus == Convert.ToInt16(RowStatus.EDITED)).ToList().ForEach(p =>
                 {
                     var product = eCommerceDbContext.Products.First(pr => pr.Product_Id == p.ProductId);
                     product.Price = p.Price;
                     product.Product_Quantity = p.ProductQuantity;
                     product.Product_Name = p.ProductName;
                     product.Product_Description = p.ProductDescription;
+                    product.Discount = p.Discount;
                 });
+            }
 
             eCommerceDbContext.SaveChanges();
 

@@ -27,8 +27,10 @@ import { VideosComponent } from './videos/videos.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { StoryComponent } from './story/story.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardProductComponent } from './dashboard-product/dashboard-product.component';
+import { DashboardComponent } from './dashboard-page/dashboard/dashboard.component';
+import { DashboardProductComponent } from './dashboard-page/dashboard-product/dashboard-product.component';
+import { DashboardUsersComponent } from './dashboard-page/dashboard-users/dashboard-users.component';
+import { QuickLinksComponent } from './quick-links/quick-links.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { DashboardProductComponent } from './dashboard-product/dashboard-product
     StoryComponent,
     ResetPasswordComponent,
     DashboardComponent,
-    DashboardProductComponent
+    DashboardProductComponent,
+    DashboardUsersComponent,
+    QuickLinksComponent
   ],
   imports: [
     BrowserModule,

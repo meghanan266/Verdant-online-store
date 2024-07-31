@@ -1,0 +1,38 @@
+<div id="dashboard-product">
+    <app-alert [alert]="alert"></app-alert>
+    <h1 style="text-align: center;">PRODUCTS</h1>
+    <div class="actions">
+        <button (click)="isEditEnabled=true" *ngIf="!isEditEnabled">Edit</button>
+        <button (click)="onClickAdd()" *ngIf="isEditEnabled">Add</button>
+        <button (click)="onClickCancel()" *ngIf="isEditEnabled">Cancel</button>
+        <button type="submit" (click)="save()" *ngIf="isEditEnabled">Save</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price (Rs)</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productList; let i = index"
+                [ngClass]="product.rowStatus === 3 ? 'deleted-row' : ''">
+                <td><input type="text" [(ngModel)]="product.productName" [disabled]="!isEditEnabled"
+                        (ngModelChange)="onValueChange(product.productId)"></td>
+                <td><textarea [(ngModel)]="product.productDescription" [disabled]="!isEditEnabled"
+                        (ngModelChange)="onValueChange(product.productId)"></textarea></td>
+                <td><input type="number" [(ngModel)]="product.price" [disabled]="!isEditEnabled"
+                        style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
+                <td><input type="text" [(ngModel)]="product.productQuantity" [disabled]="!isEditEnabled"
+                        style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
+                <td><input type="text" [(ngModel)]="product.discount" [disabled]="!isEditEnabled"
+                        style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
+                <td *ngIf="isEditEnabled"><button class="fa-solid fa-trash-can"
+                        (click)="deleteRow(product.productId)"></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

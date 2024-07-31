@@ -1,0 +1,68 @@
+/* product-table.component.css */
+
+#dashboard-product {
+    width: 90%;
+    margin: auto;
+}
+
+#dashboard-product table {
+    width: 90%;
+    border: none;
+    margin: auto;
+}
+
+#dashboard-product th,
+#dashboard-product td {
+    padding: 8px;
+    text-align: left;
+}
+
+#dashboard-product input,
+#dashboard-product textarea {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    background: #ffffff94;
+    box-shadow: 0 0 1px 0px;
+}
+
+#dashboard-product th {
+    text-align: center;
+}
+
+#dashboard-product .actions {
+    text-align: end;
+    margin-bottom: 2rem;
+}
+
+#dashboard-product .actions button {
+    background-color: #1e4617;
+    color: #f5f2ee;
+    width: 6%;
+    padding: 0.3rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
+
+#dashboard-product .fa-trash-can {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#dashboard-product input:disabled,
+#dashboard-product textarea:disabled {
+    background: transparent;
+    box-shadow: none;
+}
+
+
+#dashboard-product table td:has(input:disabled),
+#dashboard-product table td:has(textarea:disabled) {
+    box-shadow: inset 0 0 1px 0px;
+}
+
+.deleted-row {
+    background-color: #e2827e;
+}

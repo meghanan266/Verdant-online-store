@@ -1,6 +1,6 @@
 <div *ngIf="status == 'success'" class="order-success">
     <div class="order-success-img">
-        <img src="../../assets/images/order-success-2.png" alt="">
+        <img src="../../assets/images/order-success.png" alt="">
     </div>
     <br>
     <h1>YOUR ORDER IS CONFIRMED!</h1>
@@ -15,20 +15,83 @@
     <h1 style="text-align: center;">My Orders</h1>
     <div class="order-grid">
         <div class="order-card" *ngFor="let order of myOrderList">
-            <img src="{{order.productList[0].pictureUrl[0]}}" alt="">
+            <img src="{{order.product.product.pictureUrl[0]}}" alt="">
             <div style="display: inline;">
-                <h4>{{order.productList[0].productName}}</h4>
-                <div>
-                    <h6>Order Date: </h6>{{order.orderDate | date: 'MMMM d, y'}}
+                <div class="row">
+                    <span class="col-lg-6">
+                        <h6>Product: </h6>{{order.product.product.productName}}
+                    </span>
+                    <span class="col-lg-6">
+                        <h6>Order ID: </h6>{{order.successfulOrderId}}
+                    </span>
+
                 </div>
-                <div>
-                    <h6>Order ID: </h6>{{order.successfulOrderId}}
+                <div class="row">
+                    <span class="col-lg-6">
+                        <h6>Order Date: </h6>{{order.orderDate | date: 'MMMM d, y'}}
+                    </span>
+                    <span class="col-lg-6">
+                        <h6>Order Quantity: </h6>{{order.product.quantity}}
+                    </span>
                 </div>
-                <div>
-                    <h6>Delivery Address: </h6>{{order.deliveryAddress}}
+                <div class="row">
+                    <span class="col-lg-6">
+                        <h6>Delivery Address: </h6>{{order.deliveryAddress}}
+                    </span>
+                    <!-- <span class="col-lg-6">
+                        <h6>Delivery Status: </h6>{{order.deliveryTracking?.currentStatus ?
+                        order.deliveryTracking.currentStatus : "Preparing to be shipped"}}
+                        <span
+                            *ngIf="order.deliveryTracking?.trackUrl !== null && order.deliveryTracking.trackUrl !== ''
+                            && order.deliveryTracking.currentStatus !== 'Delivered'">
+                            <a [href]="order.deliveryTracking.trackUrl" target="_blank"
+                                rel="noopener noreferrer">(Track Here)</a>
+                        </span>
+                    </span> -->
+
+                    <span class="col-lg-6">
+                        <h6>Delivery Consignment Id: </h6>
+                        <span *ngIf="order.deliveryTrackingId">
+                            {{order.deliveryTrackingId}}
+                            <span>
+                                <a href="https://www.tpcdesk.com/TrackQueryStatus.aspx" target="_blank"
+                                    rel="noopener noreferrer">(Track Here)</a>
+                            </span>
+                        </span>
+                        <span *ngIf="!order.deliveryTrackingId">Not yet dispatched</span>
+
+                        <div>
+                            <h6>Price: </h6>
+                            <span>{{ order.productPrice | currency: 'INR':'symbol':'1.0-0' }}</span>
+                        </div>
+                    </span>
                 </div>
             </div>
 
         </div>
     </div>
+    <!-- <div class="order-grid">
+        <table style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Product Name</th>
+                    <th>Order Date</th>
+                    <th>Quantity</th>
+                    <th>Delivery Address</th>
+                    <th>Delivery Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of myOrderList; let i = index">
+                    <td style="width: 10vw;">{{order.successfulOrderId}}</td>
+                    <td style="width: 10vw;">{{order.product.product.productName}}</td>
+                    <td style="width: 2vw;">{{order.orderDate | date: 'dd/MM/yyyy'}}</td>
+                    <td style="width: 2vw;">{{order.product.quantity}}</td>
+                    <td style="width: 5vw;">{{order.deliveryAddress}}</td>
+                    <td style="width: 5vw;"><a href="https://apiv2.shiprocket.in/v1/external/courier/track/shipment/{{order.deliveryTrackingId}}">Track Here</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
 </div>

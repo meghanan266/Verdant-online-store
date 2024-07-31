@@ -80,19 +80,19 @@ namespace E_commerce_API.Repository
             exisitingUser.Password = user.Password != null ? PasswordHasher.HashPassword(user.Password) : exisitingUser.Password;
             this.eCommerceDbContext.Update(exisitingUser);
             this.eCommerceDbContext.SaveChanges();
-                   
+
             return CreateJwt(exisitingUser);
-        } 
-         
+        }
+
         private string CreateJwt(User user)
         {
             var jwtHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("secretkey12345678"); 
+            var key = Encoding.ASCII.GetBytes("secretkey12345678");
             var identity = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Role, user.Role),  
+                new Claim(ClaimTypes.Role, user.Role),
                 new Claim("phone", user.Phone),
-                new Claim(ClaimTypes.Email, user.Email), 
+                new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Name, user.User_Name),
             });
 
@@ -293,6 +293,22 @@ namespace E_commerce_API.Repository
             eCommerceDbContext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             eCommerceDbContext.SaveChanges();
             return 200;
+        }
+
+        public List<UserDto> GetAllUsers(int userId)
+        {
+            if (eCommerceDbContext.Users.FirstOrDefault(u => u.User_Id == userId).Role == "Admin")
+            {
+                return eCommerceDbContext.Users.Select(u => new UserDto
+                {
+                    UserId = u.User_Id,
+                    UserName = u.User_Name,
+                    Email = u.Email,
+                    Phone = u.Phone,
+                }).ToList();
+            }
+
+            return null;
         }
     }
 }
