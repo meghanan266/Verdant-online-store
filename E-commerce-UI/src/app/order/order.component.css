@@ -72,23 +72,3 @@ h4 {
     font-weight: 600;
     display: inline;
 }
-
-.order-grid::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-.order-grid::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 6px;
-    /* Background of the scrollbar track */
-}
-
-.order-grid::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 6px;
-}
-
-.order-grid::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}

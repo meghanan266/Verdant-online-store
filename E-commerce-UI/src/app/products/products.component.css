@@ -1,32 +1,59 @@
-#product-page .card-img-top {
+#product-page .card-img-container {
     width: 100%;
-    height: 50%;
+    height: 200px;
+    /* Fixed height for image container */
+    background-color: #f0f0f0;
+    /* Light background color to indicate image space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-page .card-img-container img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
 .product-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(calc(10vw + 4rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 #product-page .card-body {
     background-color: #efebe1;
     color: #1e4617;
+    padding: 0.5rem;
+    /* Adjust padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ensure space between elements */
+    flex-grow: 1;
+    /* Ensure the card body grows to fill available space */
 }
 
 #product-page .card {
-    height: calc(60vh - 4rem);
+    height: 400px;
+    /* Ensure consistent card height */
     margin-bottom: 1rem;
     text-decoration: none;
     border: 1px solid #1e4617;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-#product-page .card img,
 #product-page .card h5,
 #product-page .card p {
     cursor: pointer;
+    margin: 0.5rem 0;
+    /* Adjust margins to reduce spacing */
+}
+
+#product-page .card p {
+    margin-top: 0.25rem;
+    /* Further reduce spacing */
 }
 
 #product-page .addCart {
@@ -34,8 +61,6 @@
     color: #f5f2ee;
     border-radius: 0.5rem;
     text-decoration: none;
-    position: absolute;
-    bottom: 1rem;
     display: flex;
     align-items: center;
     border: none;
@@ -45,7 +70,10 @@
     font-weight: 100;
     justify-content: center;
     padding: 0.3rem;
-    width: 80%;
+    width: 100%;
+    /* Make the button full width */
+    margin-top: auto;
+    /* Push the button to the bottom */
 }
 
 @media screen and (max-width: 550px) {
@@ -85,4 +113,3 @@
 #product-page .addCart:active {
     transform: scale(0.95);
 }
-

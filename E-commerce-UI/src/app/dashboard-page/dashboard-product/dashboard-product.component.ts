@@ -69,6 +69,7 @@ export class DashboardProductComponent implements OnInit {
   }
 
   public onValueChange(productId: number) {
-    this.productList.find(p => p.productId === productId).rowStatus = RowStatus.EDITED;
+    this.productList.find(p => p.productId === productId).rowStatus =
+      this.productList.find(p => p.productId === productId).rowStatus === RowStatus.NEW ? RowStatus.NEW : RowStatus.EDITED;
   }
 }

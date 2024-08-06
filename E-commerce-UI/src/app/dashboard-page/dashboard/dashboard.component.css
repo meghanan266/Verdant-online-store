@@ -66,26 +66,6 @@ h6 {
     z-index: 2;
 }
 
-#dashboard #order-info::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-#dashboard #order-info::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 6px;
-    /* Background of the scrollbar track */
-}
-
-#dashboard #order-info::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 6px;
-}
-
-#dashboard #order-info::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 #dashboard .actions {
     /* text-align: end;
     width: 90vw;
