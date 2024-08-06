@@ -4,6 +4,12 @@
     flex-wrap: wrap;
 }
 
+#product-view .flex-item {
+    flex: 1 1 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 #product-view .addCart button {
     background-color: #1e4617;
     color: #f5f2ee;
@@ -74,20 +80,6 @@
     border-radius: 20px;
 }
 
-.display-review {
-    width: 60%;
-    margin: auto;
-}
-
-video {
-    width: 5rem;
-}
-
-.add-review {
-    width: 60%;
-    margin: auto;
-}
-
 .addReviewButton button {
     border: none;
     width: 30%;
@@ -135,11 +127,6 @@ video {
     align-items: center;
 }
 
-.review-range video {
-    width: 10rem;
-    padding-bottom: 2rem;
-}
-
 .submit-review {
     text-align: center;
     margin-top: 3rem;
@@ -157,6 +144,7 @@ video {
     outline: none;
     border: none;
     border-radius: 3px;
+    width: 100%;
 }
 
 .no-review {
@@ -171,4 +159,50 @@ video {
 
 .no-review p {
     margin: 0;
+}
+
+.review-range img {
+    width: 10rem;
+    height: 10rem;
+}
+
+.new-review {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.new-review .flex-item {
+    flex: 1 1 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.add-review-section button[type=submit]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.display-review {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#dashboard #order-info::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+#dashboard #order-info::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+#dashboard #order-info::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+#dashboard #order-info::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

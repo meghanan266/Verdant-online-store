@@ -31,23 +31,3 @@
     top: 0;
     z-index: 2;
 }
-
-#dashboard-user .users-table::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-#dashboard-user .users-table::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 6px;
-    /* Background of the scrollbar track */
-}
-
-#dashboard-user .users-table::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 6px;
-}
-
-#dashboard-user .users-table::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}

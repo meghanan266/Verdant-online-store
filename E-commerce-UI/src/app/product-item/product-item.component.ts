@@ -82,6 +82,7 @@ export class ProductItemComponent implements OnInit {
         };
       }
       this.isAddReview = false;
+      this.newReview = new Review;
     });
   }
 }

@@ -13,7 +13,7 @@
 
 <div *ngIf="status == null" class="order-list">
     <h1 style="text-align: center;">My Orders</h1>
-    <div class="order-grid">
+    <div class="order-grid custom-scrollbar">
         <div class="order-card" *ngFor="let order of myOrderList">
             <img src="{{order.product.product.pictureUrl[0]}}" alt="">
             <div style="display: inline;">
