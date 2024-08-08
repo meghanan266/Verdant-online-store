@@ -28,7 +28,7 @@
                         style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
                 <td><input type="text" [(ngModel)]="product.productQuantity" [disabled]="!isEditEnabled"
                         style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
-                <td><input type="text" [(ngModel)]="product.discount" [disabled]="!isEditEnabled"
+                <td><input type="number" [(ngModel)]="product.discount" [disabled]="!isEditEnabled"
                         style="text-align: center;" (ngModelChange)="onValueChange(product.productId)"></td>
                 <td *ngIf="isEditEnabled"><button class="fa-solid fa-trash-can"
                         (click)="deleteRow(product.productId)"></button></td>
