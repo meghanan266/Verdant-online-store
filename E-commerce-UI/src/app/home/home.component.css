@@ -1,18 +1,7 @@
-.hair-img {
-    display: flex;
-    align-items: center;
-    height: 70vh;
-    box-shadow: 0px 0px 10px 0px #888;
-    margin-bottom: 5rem;
-    margin-top: 3rem;
-    animation: scaling 3s forwards;
-}
-
-.font-text {
+#home .font-text {
     font-size: 3vw;
     font-weight: 500;
     width: 40%;
-    animation: blur 3s forwards;
     padding: 20vh 0 10vh 0;
 }
 
@@ -23,19 +12,7 @@
     }
 }
 
-.hair-img img {
-    width: 60%;
-    height: 70vh;
-    animation: blur 3s forwards;
-}
-
 @media screen and (max-width: 1000px) {
-
-    .hair-img,
-    .hair-img img {
-        height: 30vh;
-    }
-
     .best-seller .item img {
         width: 60vw !important;
         height: auto !important;
@@ -50,27 +27,6 @@
     .best-seller-grid .item img {
         height: auto !important;
     }
-}
-
-.desc-pic img {
-    width: 100vw;
-    max-width: 100%;
-}
-
-.desc-pic {
-    position: relative;
-    width: 90%;
-    margin: auto;
-    margin-top: 3rem;
-}
-
-.desc-pic .para {
-    position: absolute;
-    top: 23%;
-    left: 48%;
-    width: 36%;
-    text-align: justify;
-    font-size: 1.3vw;
 }
 
 .certified {
@@ -92,34 +48,6 @@
     aspect-ratio: 3/2;
     object-fit: contain;
     padding-bottom: 1rem;
-}
-
-.is-inview {
-    transform: translateX(5%);
-}
-
-.oil {
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes blur {
-    0% {
-        filter: blur(2px);
-    }
-
-    100% {
-        filter: blur(0px);
-    }
-}
-
-@keyframes scaling {
-    0% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        transform: scale(1);
-    }
 }
 
 .best-seller {
@@ -161,7 +89,7 @@
     cursor: pointer;
 }
 
-.item .card-body {
+#home .item .card-body {
     margin: 1rem;
     text-align: center;
 }
@@ -608,7 +536,7 @@
     }
 }
 
-.video-bg {
+#home .video-bg {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -616,7 +544,7 @@
     top: -10vh;
 }
 
-video {
+#home video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -627,7 +555,7 @@ video {
     z-index: -1;
 }
 
-.content {
+#home .content {
     position: relative;
     z-index: 1;
     color: white;

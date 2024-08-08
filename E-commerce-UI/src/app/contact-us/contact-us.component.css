@@ -2,7 +2,7 @@
     height: 50vh;
 }
 
-h1 {
+.contact-us h1 {
     font-size: 4vmax;
     font-weight: 600;
 }
@@ -32,7 +32,7 @@ h1 {
     position: relative;
 }
 
-.text {
+.contact-us .text {
     width: 90%;
     margin: auto;
     text-align: center;
@@ -75,7 +75,7 @@ h1 {
     }
 }
 
-.line {
+.contact-details .line {
     height: 3px;
     display: inline-block;
     vertical-align: text-top;
@@ -95,7 +95,7 @@ h1 {
     }
 }
 
-i {
+.contact-details i {
     border-radius: 50%;
     box-shadow: 0 0 2px #888;
     padding: 1rem;
@@ -130,23 +130,23 @@ i {
 }
 
 @media screen and (max-width: 700px) {
-    .text {
+    .contact-us .text {
         animation: none;
     }
-    
+
     .contact-details {
         width: 100%;
         left: 0;
         top: 35%;
     }
 
-    .content {
+    .contact-us .content {
         height: 65vh;
     }
 }
 
 @media screen and (max-width: 318px) {
-    .content {
+    .contact-us .content {
         height: 85vh;
     }
 }

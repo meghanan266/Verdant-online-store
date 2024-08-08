@@ -1,5 +1,5 @@
 <div *ngIf="cart?.cartItems.length > 0" id="cart">
-    <div class="container">
+    <div class="cart container">
         <h1 style="margin-bottom: 4rem; text-align: center;">Shopping Cart</h1>
         <div class="row heading">
             <div class="col-sm-5">
@@ -37,12 +37,10 @@
                     </div>
                 </div>
                 <div class="col-sm-2 sub-total">
-                    <h6>
-                        <span [ngStyle]="{'text-decoration': cartItem.product.discount !== null ? 'line-through' : ''}">
-                            {{cartItem.product.price * cartItem.quantity | currency:'INR'}} </span>
-                        <span *ngIf="cartItem.product.discount !== null">{{cartItem.product.price * cartItem.quantity *
-                            (1 - cartItem.product.discount / 100) | currency:'INR'}}</span>
-                    </h6>
+                    <h6 [ngStyle]="{'text-decoration': cartItem.product.discount !== null ? 'line-through' : ''}">
+                        {{cartItem.product.price * cartItem.quantity | currency:'INR'}} </h6>
+                    <h6 *ngIf="cartItem.product.discount !== null">{{cartItem.product.price * cartItem.quantity *
+                        (1 - cartItem.product.discount / 100) | currency:'INR'}}</h6>
                 </div>
                 <div class="col-sm-1">
                     <div class="remove-item">

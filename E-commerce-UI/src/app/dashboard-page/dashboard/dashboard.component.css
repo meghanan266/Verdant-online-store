@@ -1,5 +1,4 @@
 #dashboard .overview .data {
-    /* background-color: #e4e3de; */
     background-color: #ab9781;
     padding: 1rem 2rem;
     border-radius: 1rem;
@@ -22,11 +21,6 @@ h6 {
 }
 
 #dashboard .overview i {
-    /* background-color: #a8b8ad;
-    padding: 0.5rem;
-    border-radius: 1rem;
-    border: 1px solid #536774; */
-
     background-color: #dbddd6;
     padding: 0.5rem;
     border-radius: 1rem;
@@ -66,17 +60,9 @@ h6 {
     z-index: 2;
 }
 
-#dashboard .actions {
-    /* text-align: end;
-    width: 90vw;
-    margin: auto;
-    margin-top: 4rem; */
-}
-
 #dashboard .actions button {
     background-color: #1e4617;
     color: #f5f2ee;
-    /* width: 6%; */
     padding: 0.3rem;
     cursor: pointer;
     margin: 0.5rem;
