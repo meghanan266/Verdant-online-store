@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'http://localhost:7280/'
+  apiBaseUrl: 'https://verdant-api-fzhvbpdta8etefag.eastus-01.azurewebsites.net/'
 };
