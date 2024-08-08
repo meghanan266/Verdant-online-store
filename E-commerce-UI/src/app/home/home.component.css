@@ -16,6 +16,13 @@
     padding: 20vh 0 10vh 0;
 }
 
+@media (max-width: 600px) {
+    .font-text {
+        width: 100%;
+        font-size: 5vw;
+    }
+}
+
 .hair-img img {
     width: 60%;
     height: 70vh;
@@ -161,16 +168,23 @@
 
 #gooey-button {
     padding: 1rem;
-    font-size: 2rem;
+    font-size: 2vw;
     border: none;
     color: #0c1016;
     /* border-radius: 60px; */
-    border-radius: 17px 40px 40px 17px;
+    border-radius: 0 5vw 5vw 0;
     filter: url(#gooey);
     position: relative;
     background-color: #efebe1;
     margin-top: 2rem;
 }
+
+@media (max-width: 600px) {
+    #gooey-button {
+        font-size: 3vw;
+    }
+}
+
 
 #gooey-button:focus {
     outline: none;
@@ -611,15 +625,12 @@ video {
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
-    /* Place the video behind the content */
 }
 
 .content {
     position: relative;
     z-index: 1;
     color: white;
-    /* Ensure the text is visible over the video */
     text-align: center;
     padding: 20px;
-    /* Additional styling for your content */
 }

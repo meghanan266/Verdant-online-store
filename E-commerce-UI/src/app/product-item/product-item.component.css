@@ -2,10 +2,13 @@
     color: #1e4617;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #product-view .flex-item {
-    flex: 1 1 200px;
+    flex: 1 1 300px;
+    /* Adjusted to be more flexible */
     padding: 10px;
     box-sizing: border-box;
 }
@@ -23,7 +26,10 @@
     font-size: medium;
     font-weight: 100;
     justify-content: center;
-    width: 45%;
+    width: 100%;
+    /* Changed to full width for better responsiveness */
+    max-width: 250px;
+    /* Added max-width for larger screens */
     padding: 0.5rem;
 }
 
@@ -42,30 +48,46 @@
 }
 
 #product-view .addCart button:active .addToCartIcon {
-    transform: translateY(2em);
+    transform: translateY(2px);
+    /* Minor adjustment for a smoother effect */
 }
 
 #product-view .addCart button:active {
     transform: scale(0.95);
 }
 
+#product-view .carousel-control-next,
+#product-view .carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
 #product-view .carousel-control-next {
-    right: -5rem;
+    right: -1rem;
 }
 
 #product-view .carousel-control-prev {
-    left: -5rem;
+    left: -1rem;
 }
 
 #product-view #carouselExampleFade {
-    margin-right: 3rem;
+    flex: 1 1 auto;
+    /* Adjusted for better flex behavior */
+    margin-right: 1rem;
+    /* Adjusted for better spacing */
 }
 
 #product-view .carousel-item img {
-    height: 25rem !important;
+    height: auto;
+    /* Adjusted to maintain aspect ratio */
+    max-height: 25rem;
+    /* Added to limit maximum height */
     border-radius: 3px;
     object-fit: contain;
 }
+
 
 .reviews img {
     width: 5rem;

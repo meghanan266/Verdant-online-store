@@ -19,7 +19,7 @@ app-nav-bar:has(+ router-outlet + app-home) #nav-bar {
 app-contact-us~app-footer .footer,
 app-story~app-footer .footer,
 app-faq~app-footer .footer {
-    margin-top: 0 !important;
+    margin-top: -5px !important;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
 }

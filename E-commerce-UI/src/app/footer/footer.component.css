@@ -4,53 +4,78 @@
     margin-top: 5vw;
     border-top-left-radius: 3%;
     border-top-right-radius: 3%;
+    box-sizing: border-box;
 }
 
 .footer-row {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    width: 90vw;
+    justify-content: space-between;
+    width: 90%;
     margin: auto;
     padding: 2rem 0;
+    box-sizing: border-box;
 }
 
-ul li {
-    list-style-type: none;
-    padding: 1rem;
+.quick-links,
+.contact,
+.social-media {
+    flex: 1 1 250px;
+    min-width: 200px;
 }
 
 ul {
     padding-left: 0;
 }
 
+ul li {
+    list-style-type: none;
+    padding: 0.5rem 0;
+}
+
 .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem 0;
 }
 
 .logo img:nth-child(1) {
     border-radius: 50%;
     width: 5rem;
-    width: calc(1vw + 10rem);
+    height: auto;
 }
 
 .logo img:nth-child(2) {
     margin-top: 1rem;
 }
 
-.social-media-links ul{
+.social-media-links ul {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
+    padding: 0;
 }
 
-.social-media-links ul li i{
-    font-size: x-large;
+.social-media-links ul li {
+    margin: 0 0.5rem;
 }
 
-a {
+.social-media-links ul li i {
+    font-size: 2rem;
+}
+
+.footer a {
     color: black;
     text-decoration: none;
+}
+
+.contact .mail a {
+    display: flex;
+    align-items: center;
+}
+
+.contact .mail i {
+    margin-right: 0.5rem;
 }

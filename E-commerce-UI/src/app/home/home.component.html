@@ -6,8 +6,8 @@
             Your browser does not support the video tag.
         </video>
         <div class="content">
-            <div class="font-text" style="font-size: 3vw; font-weight:500;">
-                Are you ready to experience <br>"Good Hair Days"?
+            <div class="font-text">
+                Are you ready to experience <br>"Good Hair Days"? <br>
                 <svg style="position:absolute;" xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <defs>
                         <filter id="gooey">
@@ -19,7 +19,7 @@
                     </defs>
                 </svg>
 
-                <button routerLink="products" id="gooey-button">
+                <button routerLink="/products" id="gooey-button">
                     SHOP NOW!
                     <span class="bubbles">
                         <span class="bubble"></span>
@@ -46,7 +46,12 @@
                 <div class="card-body">
                     <h5 (click)="OnClickProduct(product)" class="card-title"><b> {{product.productName}} Hairoil -
                             {{product.productQuantity}}</b></h5>
-                    <p (click)="OnClickProduct(product)" class="card-text"><b>{{product.price | currency:'INR'}}</b></p>
+                    <!-- <p (click)="OnClickProduct(product)" class="card-text"><b>{{product.price | currency:'INR'}}</b></p> -->
+                    <b><span (click)="OnClickProduct(product)" class="card-text"
+                            [ngStyle]="{'text-decoration': product?.discount !== null ? 'line-through' : ''}">{{product?.price
+                            | currency:'INR'}} </span>
+                        <span *ngIf="product?.discount !== null">{{product?.price * (1 -product?.discount / 100) |
+                            currency:'INR'}} ({{product?.discount}}% Off)</span></b>
                 </div>
             </div>
         </div>
