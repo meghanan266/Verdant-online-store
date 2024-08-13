@@ -77,6 +77,7 @@ export class CartService {
 
   public removeCartItem(cartItem: CartItem) {
     const cartTemp = this.cart.value;
+    cartTemp.cartItems.splice(cartTemp.cartItems.findIndex(c => c.product.productId == cartItem.product.productId), 1);
     cartTemp.totalPrice = 0;
     cartTemp.totalPrice = cartTemp.cartItems.reduce((total, { product: { price, discount }, quantity }) => {
       return total + (price * quantity * (1 - discount / 100));

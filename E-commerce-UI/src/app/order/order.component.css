@@ -1,6 +1,87 @@
-.order-success h1,
-h4 {
+.order-success h1 {
     text-align: center;
+}
+
+.order-list {
+    padding: 1rem;
+}
+
+.order-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 3rem;
+    max-height: 70vh;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.order-card {
+    box-shadow: inset 0 0 4px 0px #e0dcdc;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.order-card img {
+    width: 10rem;
+    height: auto;
+}
+
+.order-card .row {
+    margin-bottom: 0.5rem;
+}
+
+.order-card h6 {
+    font-weight: 600;
+    display: inline;
+}
+
+@media screen and (max-width: 1050px) {
+    .order-card img {
+        width: 8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .order-card {
+        flex-direction: column;
+    }
+
+    .order-card img {
+        width: 50%;
+        margin: auto;
+        max-width: 150px;
+    }
+
+    .order-card .row {
+        display: block;
+    }
+
+    .order-card span {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.orders-button button {
+    background-color: #1e4617;
+    color: #f5f2ee;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    margin-top: 3rem;
+    border: none;
+    text-align: center;
+}
+
+.orders-button {
+    margin: auto;
+    width: calc(10vw + 10rem);
 }
 
 .order-success-img {
@@ -22,53 +103,4 @@ h4 {
     100% {
         transform: rotate(360deg) scale(1);
     }
-}
-
-@media screen and (max-width: 1050px) {
-    .order-card img {
-        margin: auto;
-    }
-}
-
-.orders-button button {
-    background-color: #1e4617;
-    color: #f5f2ee;
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    margin-top: 3rem;
-}
-
-.orders-button {
-    margin: auto;
-    width: calc(10vw + 10rem);
-}
-
-
-.order-grid {
-    width: calc(50vw + 10rem);
-    margin: auto;
-    margin-top: 3rem;
-    max-height: 70vh;
-    overflow: auto;
-}
-
-.order-card {
-    /* border: 1px solid black; */
-    box-shadow: inset 0 0 4px 0px #e0dcdc;
-    padding: 1rem;
-    border-radius: 5px;
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.order-card img {
-    width: 10rem;
-}
-
-.order-card h6 {
-    font-weight: 600;
-    display: inline;
 }

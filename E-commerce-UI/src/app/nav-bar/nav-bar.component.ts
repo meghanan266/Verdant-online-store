@@ -30,10 +30,6 @@ export class NavBarComponent implements OnInit {
       this.userService.user.subscribe(u => { this.user = u; })
   }
 
-  public openClickMenuIcon() {
-    this.menuIconVisible = !this.menuIconVisible;
-  }
-
   public onClickLogOut() {
     this.userService.logOut();
     location.reload();

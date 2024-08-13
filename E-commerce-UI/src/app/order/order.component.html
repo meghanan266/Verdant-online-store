@@ -53,16 +53,14 @@
                         <h6>Delivery Consignment Id: </h6>
                         <span *ngIf="order.deliveryTrackingId">
                             {{order.deliveryTrackingId}}
-                            <span>
-                                <a href="https://www.tpcdesk.com/TrackQueryStatus.aspx" target="_blank"
-                                    rel="noopener noreferrer">(Track Here)</a>
-                            </span>
+                            <a href="https://www.tpcdesk.com/TrackQueryStatus.aspx" target="_blank"
+                                rel="noopener noreferrer">(Track Here)</a>
                         </span>
                         <span *ngIf="!order.deliveryTrackingId">Not yet dispatched</span>
 
                         <div>
                             <h6>Price: </h6>
-                            <span>{{ order.productPrice | currency: 'INR':'symbol':'1.0-0' }}</span>
+                            {{ order.productPrice | currency: 'INR':'symbol':'1.0-0' }}
                         </div>
                     </span>
                 </div>
@@ -70,28 +68,4 @@
 
         </div>
     </div>
-    <!-- <div class="order-grid">
-        <table style="width: 100%;">
-            <thead>
-                <tr>
-                    <th>Order Id</th>
-                    <th>Product Name</th>
-                    <th>Order Date</th>
-                    <th>Quantity</th>
-                    <th>Delivery Address</th>
-                    <th>Delivery Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of myOrderList; let i = index">
-                    <td style="width: 10vw;">{{order.successfulOrderId}}</td>
-                    <td style="width: 10vw;">{{order.product.product.productName}}</td>
-                    <td style="width: 2vw;">{{order.orderDate | date: 'dd/MM/yyyy'}}</td>
-                    <td style="width: 2vw;">{{order.product.quantity}}</td>
-                    <td style="width: 5vw;">{{order.deliveryAddress}}</td>
-                    <td style="width: 5vw;"><a href="https://apiv2.shiprocket.in/v1/external/courier/track/shipment/{{order.deliveryTrackingId}}">Track Here</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
 </div>

@@ -56,10 +56,14 @@
     .menuDropDown {
         display: block !important;
         position: absolute;
-        top: 4rem;
+        top: 3.4rem;
         right: 0;
         background-color: #89a093;
         width: 10rem;
+    }
+
+    #nav-bar .menuDropDown a.nav-link {
+        color: #f5f2ee;
     }
 
     .menu_icon {
@@ -98,7 +102,7 @@
 .dropdown:hover .dropdown-content {
     display: block !important;
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     right: 0;
     background-color: #89a093;
     width: 11rem;
