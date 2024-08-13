@@ -21,6 +21,11 @@
     margin-right: 1rem;
 }
 
+.cart-item .quantity button:disabled,
+.cart-item .remove-item button:disabled {
+    color: #7f8877;
+}
+
 .cart-item .quantity button,
 .cart-item .remove-item button {
     border: none;
@@ -95,7 +100,7 @@
         position: absolute;
         top: 70%;
         left: 23%;
-        width: 80%;
+        width: 76%;
     }
 
     .cart-item .quantity {

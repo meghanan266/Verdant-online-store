@@ -18,27 +18,7 @@
         </ul>
     </div>
     <div class="menu" *ngIf="user?.role !== 'Admin'">
-        <ul class="nav justify-content-center" [class.menuDropDown]="menuIconVisible">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" routerLink=""><i class="fa fa-home"></i>
-                    Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/products"><i class="fa fa-store"></i> Shop</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/story"><i class="fa fa-heart"></i> Our Story</a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" routerLink="/videos"><i class="fa fa-video"></i> Videos</a>
-            </li> -->
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/faq"><i class="fa fa-question"></i> FAQS</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/contact-us"><i class="fa fa-phone"></i> Contact Us</a>
-            </li>
-        </ul>
+        <ng-container *ngTemplateOutlet="menuTemplate" class="justify-content-center"></ng-container>
     </div>
     <div class="actions">
         <ul class="nav justify-content-end">
@@ -65,9 +45,32 @@
                     <span>Cart</span> </a>
             </li>
             <li class="nav-item menu_icon">
-                <a class="nav-link menu-icon" (mouseenter)="menuIconVisible=true;" (mouseleave)="menuIconVisible=false;"><i class="fa fa-bars"></i>
+                <a class="nav-link menu-icon"><i class="fa fa-bars"></i>
                 </a>
+                <div class="menuDropDown">
+                    <ng-container *ngTemplateOutlet="menuTemplate"></ng-container>
+                </div>
             </li>
         </ul>
     </div>
 </div>
+
+<ng-template #menuTemplate>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLink=""><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/products"><i class="fa fa-store"></i> Shop</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/story"><i class="fa fa-heart"></i> Our Story</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/faq"><i class="fa fa-question"></i> FAQS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us"><i class="fa fa-phone"></i> Contact Us</a>
+        </li>
+    </ul>
+</ng-template>

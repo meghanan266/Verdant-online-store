@@ -23,7 +23,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="col flex-item" style="margin-left: 3rem;">
+    <div class="col flex-item">
         <h1>{{selectedProduct?.productName}} Hairoil - {{selectedProduct?.productQuantity}}</h1>
         <!-- <h3>{{selectedProduct?.price | currency:'INR'}}/-</h3> -->
         <h3 style="color: #f5f2ee;">
@@ -37,16 +37,17 @@
 
 
         <div class="product-desc">
+            <div class="addCart" style="text-align: center;">
+                <button (click)="addToCart()">
+                    <span class="addToCart">Add to Cart</span>
+                    <span class="addToCartIcon fa-solid fa-cart-arrow-down"></span>
+                </button>
+            </div>
+            <br><br>
             <h3>Description</h3>
             <div>
                 <p>{{selectedProduct?.productDescription}}</p>
             </div>
-        </div>
-        <div class="addCart" style="text-align: -webkit-center; margin-top: 3rem;">
-            <button (click)="addToCart()">
-                <span class="addToCart">Add to Cart</span>
-                <span class="addToCartIcon fa-solid fa-cart-arrow-down"></span>
-            </button>
         </div>
     </div>
 </div>

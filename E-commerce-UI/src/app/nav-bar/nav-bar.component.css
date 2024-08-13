@@ -53,17 +53,18 @@
         width: calc(2vw + 25px);
     }
 
-    .menuDropDown {
-        display: block !important;
-        position: absolute;
-        top: 3.4rem;
-        right: 0;
-        background-color: #89a093;
-        width: 10rem;
+    .menuDropDown ul li {
+        width: auto;
     }
 
-    #nav-bar .menuDropDown a.nav-link {
-        color: #f5f2ee;
+    .menu_icon:hover .menuDropDown {
+        display: block !important;
+    }
+
+
+
+    .menuDropDown a.nav-link {
+        color: #1e4617 !important;
     }
 
     .menu_icon {
@@ -76,18 +77,28 @@
 
 }
 
+.menuDropDown {
+    display: none;
+    position: absolute;
+    top: 2.8rem;
+    right: 10px;
+    background-color: #efebe1;
+    width: 10rem;
+    z-index: 1050;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
     z-index: 1;
 }
 
 .dropdown-content a {
     float: none;
-    color: #f5f2ee;
+    color: #1e4617;
     padding: 6px 12px;
     text-decoration: none;
     display: block;
@@ -102,10 +113,10 @@
 .dropdown:hover .dropdown-content {
     display: block !important;
     position: absolute;
-    top: 3rem;
-    right: 0;
-    background-color: #89a093;
-    width: 11rem;
+    top: 2.8rem;
+    right: -1rem;
+    background-color: #efebe1;
+    width: 10rem;
 }
 
 #nav-bar .totalCartItems {

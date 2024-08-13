@@ -48,8 +48,7 @@
 }
 
 #product-view .addCart button:active .addToCartIcon {
-    transform: translateY(2px);
-    /* Minor adjustment for a smoother effect */
+    transform: translateY(2em);
 }
 
 #product-view .addCart button:active {
