@@ -12,7 +12,7 @@
                 <br>
                 <p> You're receiving this e-mail because you requested a password reset for your Verdant account. </p>
                 <p> Please click on link below to choose a new password.</p>
-                <a href=""http://localhost:4200/#/reset-pwd?email={email}&code={emailToken}"" target=""_blank"" style=""
+                <a href=""https://theverdantnature.com/#/reset-pwd?email={email}&code={emailToken}"" target=""_blank"" style=""
                     background: #0d6efd; color:white;border-radius: 5px;display:block; margin: auto;width: 50%; text-align
                     :center;text-decoration: none"">Reset Password</a>
                 <p>Kind Regards, <br><br>

@@ -13,12 +13,25 @@ export class HomeComponent implements OnInit {
 
   public alert: Alert;
   public bestSellerList: Product[];
+  public reviews: { url: string, type: 'image' | 'video' }[] = [];
+
   constructor(private productService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe(res => {
       this.bestSellerList = res.slice(0, 3);
     });
+    this.reviews = [
+      { url: 'assets/images/Reviews/review-1.mp4', type: 'video' },
+      { url: 'assets/images/Reviews/review-2.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-3.mp4', type: 'video' },
+      { url: 'assets/images/Reviews/review-4.mp4', type: 'video' },
+      { url: 'assets/images/Reviews/review-5.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-6.mp4', type: 'video' },
+      { url: 'assets/images/Reviews/review-7.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-8.jpg', type: 'image' },
+
+    ];
   }
 
   public OnClickProduct(product: Product) {

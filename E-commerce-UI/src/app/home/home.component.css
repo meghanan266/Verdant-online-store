@@ -544,7 +544,7 @@
     top: -10vh;
 }
 
-#home video {
+#home .video-bg video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -561,4 +561,95 @@
     color: white;
     text-align: center;
     padding: 20px;
+}
+
+#home .review .carousel-control-next,
+#home .review .carousel-control-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 3rem;
+    /* Width of the arrow container */
+    height: 3rem;
+    /* Height of the arrow container */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Optional: Add a background to make arrows more visible */
+    border-radius: 50%;
+    /* Make the arrow background circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+#home .review .carousel-control-next {
+    right: -2.5rem;
+}
+
+#home .review .carousel-control-prev {
+    left: -2.5rem;
+}
+
+#home .review .carousel-control-next-icon,
+#home .review .carousel-control-prev-icon {
+    background-size: 100% 100%;
+}
+
+#home .review .carousel-inner {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+#home .review .carousel-item {
+    display: flex;
+    align-items: center;
+}
+
+#home .review .carousel-item .row {
+    display: flex;
+    width: 100%;
+    margin: 0;
+}
+
+#home .review .carousel-item .col-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 0 10px;
+}
+
+@media (max-width: 600px) {
+    #home .review .carousel-control-next {
+        right: 0;
+    }
+
+    #home .review .carousel-control-prev {
+        left: -1rem;
+    }
+
+    #home .review .carousel-inner {
+        padding: 0 1rem;
+    }
+
+    #home .review .carousel-item .col-4 {
+        padding: 0 5px;
+    }
+}
+
+#home .review .carousel-item img,
+#home .review .carousel-item video {
+    height: auto;
+    max-height: 35rem;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+#home .review {
+    position: relative;
+    padding: 3rem 0;
+    background: linear-gradient(360deg, #efebe1, #afbca3);
+    color: #fff;
+    border-radius: 3px;
 }

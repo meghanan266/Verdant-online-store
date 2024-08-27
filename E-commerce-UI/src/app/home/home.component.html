@@ -1,7 +1,7 @@
 <div id="home">
     <div class="video-bg">
         <video autoplay muted>
-            <source src="assets\images\Video sample 2.mp4" type="video/mp4">
+            <source src="assets\images\home-page-vid.mp4" type="video/mp4">
             <!-- Fallback message if video is not supported -->
             Your browser does not support the video tag.
         </video>
@@ -59,7 +59,43 @@
 
     <div class="description">
     </div>
-    <div class="review">
+    <br><br>
+    <div class="review container">
+        <h1 style="text-align: center;">Hear From Our Happy Customers 😊</h1>
+        <br><br>
+        <div id="reviewCarousel" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-4" *ngFor="let item of reviews.slice(0, 3)">
+                            <ng-container [ngSwitch]="item.type">
+                                <img *ngSwitchCase="'image'" [src]="item.url" class="d-block w-100" alt="...">
+                                <video *ngSwitchCase="'video'" [src]="item.url" class="d-block w-100" controls></video>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-4" *ngFor="let item of reviews.slice(3, 6)">
+                            <ng-container [ngSwitch]="item.type">
+                                <img *ngSwitchCase="'image'" [src]="item.url" class="d-block w-100" alt="...">
+                                <video *ngSwitchCase="'video'" [src]="item.url" class="d-block w-100" controls></video>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
 
     </div>
 

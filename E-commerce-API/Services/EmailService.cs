@@ -15,7 +15,7 @@ namespace E_commerce_API.Services
         {
             var emailMsg = new MimeMessage();
             var from = configuration["EmailSettings:From"];
-            emailMsg.From.Add(new MailboxAddress("Verdant", from));
+            emailMsg.From.Add(new MailboxAddress("Verdant - Close To Nature", from));
             emailMsg.To.Add(new MailboxAddress(emailDto.To, emailDto.To));
             emailMsg.Subject = emailDto.Subject;
             emailMsg.Body = new TextPart(MimeKit.Text.TextFormat.Html)
