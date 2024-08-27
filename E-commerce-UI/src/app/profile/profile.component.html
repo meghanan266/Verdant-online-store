@@ -11,24 +11,33 @@
                         <form [formGroup]="profileForm">
                             <div class="form-group">
                                 <span class="label">Email</span>
-                                <input readonly="readonly" formControlName="email" type="email">
+                                <input readonly="readonly" formControlName="email" type="email" style="cursor: not-allowed;">
                             </div>
                             <div class="form-group">
                                 <span class="label">Username</span>
-                                <input formControlName="userName" type="text">
+                                <input formControlName="userName" type="text" required>
                             </div>
                             <div class="form-group">
                                 <span class="label">Phone number</span>
-                                <input formControlName="phone" type="tel" pattern="[0-9]{10}">
+                                <input formControlName="phone" type="tel" pattern="[0-9]{10}" required>
+                                <div *ngIf="profileForm.get('phone').invalid && profileForm.get('phone').touched">
+                                    <small *ngIf="profileForm.get('phone').hasError" style="color: red;">Phone number
+                                        must be 10 digits.</small>
+                                </div>
                             </div>
                             <div class="form-group" *ngIf="isChangePassword">
                                 <span class="label">Password</span>
-                                <input type="text" formControlName="password">
+                                <input type="password" formControlName="password">
+                                <div> <small *ngIf="profileForm.get('password').invalid && profileForm.get('password').touched &&
+                                    profileForm.get('password').hasError" style="color: red;">Password must
+                                        contain at least 6 characters.</small>
+                                </div>
                             </div>
                             <button *ngIf="!isChangePassword" class="form-group"
                                 (click)="isChangePassword = true">Change Password<span class="fa fa-pen"
                                     style="padding-left: 0.3rem;"></span></button>
-                            <div><button type="submit" (click)="onClickSave()">Save</button></div>
+                            <div><button type="submit" (click)="onClickSave()"
+                                    [disabled]="profileForm.invalid">Save</button></div>
                         </form>
                     </div>
                 </div>

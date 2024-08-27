@@ -10,13 +10,13 @@
             <div>
                 <h1> Reset your Password </h1>
                 <br>
-                <p> You're receiving this e-mail because you requested a password reset for your Verdant account. </p>
-                <p> Please click on link below to choose a new password.</p>
+                <p> We’ve received a request to reset the password for your Verdant account. </p>
+                <p> Please click on link below to set a new password.</p>
                 <a href=""https://theverdantnature.com/#/reset-pwd?email={email}&code={emailToken}"" target=""_blank"" style=""
                     background: #0d6efd; color:white;border-radius: 5px;display:block; margin: auto;width: 50%; text-align
                     :center;text-decoration: none"">Reset Password</a>
-                <p>Kind Regards, <br><br>
-                    Verdant</p>
+                <p>Best Regards, <br>
+                    The Verdant Team</p>
             </div>
         </div>
     </body>

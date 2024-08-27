@@ -17,15 +17,15 @@ export class LoginComponent implements OnInit {
 
   public isSignUp = false;
   public loginForm: FormGroup = new FormGroup({
-    email: new FormControl(null, { validators: Validators.required }),
+    email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
     password: new FormControl(null, { validators: Validators.required })
   });
 
   public signUpForm: FormGroup = new FormGroup({
     userName: new FormControl(null, { validators: Validators.required }),
-    email: new FormControl(null, { validators: Validators.required }),
-    password: new FormControl(null, { validators: Validators.required }),
-    phone: new FormControl(null, { validators: Validators.required }),
+    email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
+    password: new FormControl(null, { validators: [Validators.required, Validators.minLength(6)] }),
+    phone: new FormControl(null, { validators: [Validators.required, Validators.pattern('^[0-9]{10}$')] }),
   });
 
   public user: User = new User();
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.alert = {
           show: true,
           type: 'fail',
-          message: 'Login Failed :/'
+          message: 'Login Failed :/ Please check email and password.'
         };
         return;
       }
