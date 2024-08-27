@@ -1,5 +1,6 @@
+<app-alert [alert]="alert"></app-alert>
 <div id="product-view" class="container" *ngIf="selectedProductId != 0">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade col flex-item">
+    <div id="carouselExampleFade" class="carousel slide col flex-item">
         <div class="carousel-inner">
             <div [ngClass]="i == 0 ? 'carousel-item active': 'carousel-item'"
                 *ngFor="let itemUrl of selectedProduct?.pictureUrl; let i = index">

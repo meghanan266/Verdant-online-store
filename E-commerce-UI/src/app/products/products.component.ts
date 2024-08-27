@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../shared/model/product-model';
 import { CartService } from '../shared/service/cart.service';
 import { ProductsService } from './products.service';
+import { Alert } from '../shared/model/alert-model';
 
 @Component({
   selector: 'app-products',
@@ -13,6 +14,7 @@ export class ProductsComponent implements OnInit {
   public productList: Product[];
   public selectedProductId: number;
   public selectedProduct: Product;
+  public alert: Alert;
 
   constructor(private productService: ProductsService, private router: Router,
     private route: ActivatedRoute, private cartService: CartService) {
@@ -38,6 +40,17 @@ export class ProductsComponent implements OnInit {
 
   public addToCart(product: Product) {
     this.cartService.addToCart(product);
+    this.alert = {
+      show: true,
+      type: 'success',
+      message: 'Added to cart successfully!'
+    };
+    setTimeout(() => {
+      this.alert = {
+        show: false,
+        type: '',
+        message: ''
+      };
+    }, 2000);
   }
-
 }

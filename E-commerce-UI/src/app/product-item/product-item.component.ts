@@ -52,6 +52,18 @@ export class ProductItemComponent implements OnInit {
 
   public addToCart() {
     this.cartService.addToCart(this.selectedProduct);
+    this.alert = {
+      show: true,
+      type: 'success',
+      message: 'Added to cart successfully!'
+    };
+    setTimeout(() => {
+      this.alert = {
+        show: false,
+        type: '',
+        message: ''
+      };
+    }, 2000);
   }
 
   onReviewRangeChange(event: any) {

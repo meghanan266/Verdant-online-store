@@ -7,10 +7,14 @@
 }
 
 #product-view .flex-item {
-    flex: 1 1 300px;
-    /* Adjusted to be more flexible */
+    flex: 1 1 600px;
     padding: 10px;
     box-sizing: border-box;
+}
+
+#product-view .addCart {
+    width: 50%;
+    margin: auto;
 }
 
 #product-view .addCart button {
@@ -27,9 +31,7 @@
     font-weight: 100;
     justify-content: center;
     width: 100%;
-    /* Changed to full width for better responsiveness */
     max-width: 250px;
-    /* Added max-width for larger screens */
     padding: 0.5rem;
 }
 
@@ -73,17 +75,15 @@
 
 #product-view #carouselExampleFade {
     flex: 1 1 auto;
-    /* Adjusted for better flex behavior */
     margin-right: 1rem;
-    /* Adjusted for better spacing */
+    width: 50%;
+    max-width: 50rem;
 }
 
 #product-view .carousel-item img {
     height: auto;
-    /* Adjusted to maintain aspect ratio */
     max-height: 25rem;
-    /* Added to limit maximum height */
-    border-radius: 3px;
+    min-height: 15rem;
     object-fit: contain;
 }
 

@@ -6,14 +6,10 @@ import { Alert } from '../model/alert-model';
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit {
+export class AlertComponent {
 
   @Input() public alert: Alert;
   constructor() { }
-
-  ngOnInit(): void {
-
-  }
 
   public resetAlert() {
     this.alert = {
