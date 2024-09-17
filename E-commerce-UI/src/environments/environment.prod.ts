@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://verdant-api-fzhvbpdta8etefag.eastus-01.azurewebsites.net/'
+  apiBaseUrl: 'https://verdant-nature-api-euh7e0gdhycmhtap.southindia-01.azurewebsites.net/'
 };
