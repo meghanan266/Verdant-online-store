@@ -101,7 +101,8 @@ namespace E_commerce_API.Repository
             {
                 Subject = identity,
                 Expires = DateTime.Now.AddMinutes(5),
-                SigningCredentials = credentials
+                SigningCredentials = credentials,
+                NotBefore = DateTime.Now,
             };
 
             var token = jwtHandler.CreateToken(tokenDescriptor);

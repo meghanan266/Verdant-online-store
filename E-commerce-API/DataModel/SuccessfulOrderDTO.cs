@@ -15,5 +15,6 @@ namespace E_commerce_API.DataModel
         public int UserId {  get; set; }
         public DeliveryTracking DeliveryTracking { get; set; }
         public int ProductPrice { get; set; }
+        public string CustomOrderId { get; set; }
     }
 }

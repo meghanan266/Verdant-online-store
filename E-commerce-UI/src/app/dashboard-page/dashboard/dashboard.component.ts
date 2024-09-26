@@ -43,8 +43,8 @@ export class DashboardComponent implements OnInit {
 
   save() {
     const modifiedOrders = this.orders.filter(ord =>
-      this.ordersCopy.find(o => o.successfulOrderId === ord.successfulOrderId).deliveryStatus !== ord.deliveryStatus ||
-      this.ordersCopy.find(o => o.successfulOrderId === ord.successfulOrderId).deliveryTrackingId !== ord.deliveryTrackingId
+      this.ordersCopy.find(o => o.customOrderId === ord.customOrderId).deliveryStatus !== ord.deliveryStatus ||
+      this.ordersCopy.find(o => o.customOrderId === ord.customOrderId).deliveryTrackingId !== ord.deliveryTrackingId
     );
     if (modifiedOrders.length > 0) {
       this.dashboardService.saveDashboardOrder(modifiedOrders).subscribe(res => {

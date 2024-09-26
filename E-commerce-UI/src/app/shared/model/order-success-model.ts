@@ -13,4 +13,5 @@ export class SuccessfulOrder {
     public product: CartItem;
     public deliveryTracking: DeliveryTracking;
     public productPrice: number;
+    public customOrderId: string;
 }

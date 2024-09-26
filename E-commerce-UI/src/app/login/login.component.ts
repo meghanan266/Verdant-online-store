@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl(null, { validators: [Validators.required, Validators.email] }),
     password: new FormControl(null, { validators: [Validators.required, Validators.minLength(6)] }),
     phone: new FormControl(null, { validators: [Validators.required, Validators.pattern('^[0-9]{10}$')] }),
+    confirmPassword: new FormControl(null, { validators: Validators.required }),
   });
 
   public user: User = new User();
@@ -104,7 +105,7 @@ export class LoginComponent implements OnInit {
         this.alert = {
           show: true,
           type: 'success',
-          message: 'Email to reset password has been sent successfully.'
+          message: 'Email to reset password has been sent successfully. Please check your spam or junk folder.'
         };
       },
       error: (err) => {
@@ -114,7 +115,7 @@ export class LoginComponent implements OnInit {
           message: 'Something went wrong.'
         };
       }
-    })
+    });
   }
 
 }

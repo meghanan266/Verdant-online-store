@@ -79,6 +79,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="input-field">
+                                    <input formControlName="confirmPassword" type="password" required minlength="6"
+                                        [ngClass]="{'hasInput': signUpForm.get('confirmPassword').value?.length > 0}">
+                                    <label for="">Confirm Password</label>
+                                    <div> <small
+                                            *ngIf="signUpForm.get('confirmPassword').touched && signUpForm.get('password').value !== signUpForm.get('confirmPassword').value"
+                                            style="color: red;">Password does not match.</small>
+                                    </div>
+                                </div>
+                            </div>
                             <button [disabled]="signUpForm.invalid" type="submit" (click)="onClickSignUp()">Sign
                                 Up</button>
                         </form>

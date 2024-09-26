@@ -40,7 +40,7 @@
         <h1 style="text-align: center;">Best Sellers</h1>
         <div class="best-seller-grid">
             <div class="item" *ngFor="let product of bestSellerList">
-                <img (click)="OnClickProduct(product)" src="{{product.pictureUrl[0]}}" class="card-img-top"
+                <img loading="lazy" (click)="OnClickProduct(product)" src="{{product.pictureUrl[0]}}" class="card-img-top"
                     alt="{{product.productName}}">
                 <div class="card-body">
                     <h5 (click)="OnClickProduct(product)" class="card-title"><b> {{product.productName}} Hairoil -
@@ -94,7 +94,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        
+
 
     </div>
 

@@ -54,7 +54,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let order of orders; let i = index">
-                    <td style="width: 10vw;">{{order.successfulOrderId}}</td>
+                    <td style="width: 10vw;">{{order.customOrderId}}</td>
                     <td style="width: 1vw;"><input type="checkbox" [(ngModel)]="order.deliveryStatus"
                             [disabled]="!isEditEnabled"></td>
                     <td style="width: 10vw;">{{order.userId}}</td>

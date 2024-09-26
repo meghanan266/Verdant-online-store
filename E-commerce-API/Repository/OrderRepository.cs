@@ -21,7 +21,7 @@ namespace E_commerce_API.Repository
 
         public string CreateOrder(double totalPrice)
         {
-            RazorpayClient client = new RazorpayClient("rzp_test_anzIjjz2Vd1MvW", "e5uoVcUJk0L3GDDdx1svsG9H");
+            RazorpayClient client = new RazorpayClient("rzp_test_JFr7Grt8zIWEz6", "uA0CwxwtsCr2l44cCho6EMIX");
 
             Dictionary<string, object> options = new Dictionary<string, object>();
             options.Add("amount", totalPrice * 100); // amount in the smallest currency unit
@@ -92,7 +92,7 @@ namespace E_commerce_API.Repository
         {
             successfulOrder.ProductList.ForEach(c =>
             {
-                eCommerceDbContext.SuccessfulOrders.Add(new SuccessfulOrder
+                var order = new SuccessfulOrder
                 {
                     User_Id = userId,
                     Product_Id = c.Product.ProductId,
@@ -100,12 +100,30 @@ namespace E_commerce_API.Repository
                     Order_Date = DateTime.Now,
                     Delivery_Address = successfulOrder.DeliveryAddress,
                     Quantity = c.Quantity,
-                    Product_Price = Convert.ToInt32(Math.Round(c.Product.Price * c.Quantity * (1m - (c.Product.Discount ?? 0) / 100m), MidpointRounding.AwayFromZero))
-                });
+                    Product_Price = Convert.ToInt32(Math.Round(c.Product.Price * c.Quantity * (1m - (c.Product.Discount ?? 0) / 100m), MidpointRounding.AwayFromZero)),
+                };
+
+                eCommerceDbContext.SuccessfulOrders.Add(order);
+                eCommerceDbContext.SaveChanges();
+                order.Custom_Order_Id = this.GenerateCustomOrderID(order.Successful_Order_Id);
             });
+
 
             eCommerceDbContext.SaveChanges();
         }
+
+        private string GenerateCustomOrderID(int orderID)
+        {
+            var yearMonth = DateTime.Now.ToString("yyyyMM");
+
+            if (orderID > 99999)
+            {
+                return $"{yearMonth}{orderID.ToString()}";
+            }
+
+            return $"{yearMonth}{orderID.ToString().PadLeft(5, '0')}";
+        }
+
 
         public List<SuccessfulOrderDTO> GetMyOrders(int userId)
         {
@@ -128,6 +146,7 @@ namespace E_commerce_API.Repository
                             },
                             DeliveryTrackingId = o.Delivery_Tracking_Id,
                             ProductPrice = o.Product_Price,
+                            CustomOrderId = o.Custom_Order_Id,
                         }).OrderByDescending(o => o.OrderDate).ToList();
             ////foreach (var item in list)
             ////{
@@ -203,6 +222,7 @@ namespace E_commerce_API.Repository
                             RazorPayOrderId = o.Razor_Pay_Order_Id,
                             UserId = o.User_Id,
                             ProductPrice = o.Product_Price,
+                            CustomOrderId = o.Custom_Order_Id,
                         }).OrderByDescending(o => o.OrderDate).ToList();
 
             if (!string.IsNullOrEmpty(filterValue))
