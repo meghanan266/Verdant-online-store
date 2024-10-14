@@ -47,8 +47,10 @@ export class AddressComponent implements OnInit {
 
   getAddressDetails() {
     this.userService.getLocation(this.addressForm.value.pincode).subscribe((response) => {
-      this.addressForm.get('state').patchValue(response.state);
-      this.addressForm.get('city').patchValue(response.city);
+      if (response) {
+        this.addressForm.get('state').patchValue(response.state);
+        this.addressForm.get('city').patchValue(response.city);
+      }
     });
   }
 

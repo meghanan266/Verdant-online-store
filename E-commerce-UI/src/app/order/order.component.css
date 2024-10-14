@@ -87,7 +87,7 @@
 .order-success-img {
     display: flex;
     justify-content: center;
-    height: 40vh;
+    height: 25vh;
     animation: rotateAndScale 5s forwards;
 }
 
