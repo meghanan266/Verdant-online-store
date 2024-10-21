@@ -1,15 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-
 body {
-    /* background-color: #e9e6e175; */
-    /* background-color: #89a0939c; */
-    /* background-color: #89a093d6; */
-    /* font-family: 'Amatic SC', cursive; */
-    font-family: 'Comfortaa', cursive !important;
-    /* font-family: 'Josefin Slab', serif; */
-    /* font-family: 'Montserrat', sans-serif; */
     background-color: #afbca3;
-    /* color: #1e4617; */
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 app-nav-bar:has(+ router-outlet + app-home) #nav-bar {
@@ -27,11 +19,6 @@ app-faq~app-footer .footer {
 html,
 body {
     height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
