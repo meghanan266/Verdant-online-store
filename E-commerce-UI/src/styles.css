@@ -1,7 +1,7 @@
 body {
     background-color: #afbca3;
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: 'Comfortaa', cursive !important;
 }
 
 app-nav-bar:has(+ router-outlet + app-home) #nav-bar {
