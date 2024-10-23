@@ -20,7 +20,7 @@
 
                 <button routerLink="/products" id="gooey-button">
                     SHOP NOW!
-                    <span class="bubbles">
+                    <!-- <span class="bubbles">
                         <span class="bubble"></span>
                         <span class="bubble"></span>
                         <span class="bubble"></span>
@@ -31,7 +31,7 @@
                         <span class="bubble"></span>
                         <span class="bubble"></span>
                         <span class="bubble"></span>
-                    </span>
+                    </span> -->
                 </button>
             </div>
         </div>
@@ -77,6 +77,26 @@
                 <div class="carousel-item">
                     <div class="row">
                         <div class="col-4" *ngFor="let item of reviews.slice(3, 6)">
+                            <ng-container [ngSwitch]="item.type">
+                                <img *ngSwitchCase="'image'" [src]="item.url" class="d-block w-100" alt="...">
+                                <video *ngSwitchCase="'video'" [src]="item.url" class="d-block w-100" controls></video>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-4" *ngFor="let item of reviews.slice(6, 9)">
+                            <ng-container [ngSwitch]="item.type">
+                                <img *ngSwitchCase="'image'" [src]="item.url" class="d-block w-100" alt="...">
+                                <video *ngSwitchCase="'video'" [src]="item.url" class="d-block w-100" controls></video>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-4" *ngFor="let item of reviews.slice(9, 12)">
                             <ng-container [ngSwitch]="item.type">
                                 <img *ngSwitchCase="'image'" [src]="item.url" class="d-block w-100" alt="...">
                                 <video *ngSwitchCase="'video'" [src]="item.url" class="d-block w-100" controls></video>

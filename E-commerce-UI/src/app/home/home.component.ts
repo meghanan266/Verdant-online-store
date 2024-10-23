@@ -30,7 +30,10 @@ export class HomeComponent implements OnInit {
       { url: 'assets/images/Reviews/review-6.mp4', type: 'video' },
       { url: 'assets/images/Reviews/review-7.jpg', type: 'image' },
       { url: 'assets/images/Reviews/review-8.jpg', type: 'image' },
-
+      { url: 'assets/images/Reviews/review-9.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-10.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-11.jpg', type: 'image' },
+      { url: 'assets/images/Reviews/review-12.jpg', type: 'image' },
     ];
   }
 
