@@ -21,7 +21,7 @@ namespace E_commerce_API.Repository
 
         public string CreateOrder(double totalPrice)
         {
-            RazorpayClient client = new RazorpayClient("rzp_live_s7ESSdEI7eiPrY", "zYPh7lU0cu7b5w2m3Z5EsmVV");
+            RazorpayClient client = new RazorpayClient("", "");
 
             Dictionary<string, object> options = new Dictionary<string, object>();
             options.Add("amount", totalPrice * 100); // amount in the smallest currency unit
