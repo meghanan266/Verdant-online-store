@@ -47,7 +47,7 @@ export class OrderService {
 
   public makePayment(res: OrderResponse) {
     const options = {
-      "key": "rzp_live_s7ESSdEI7eiPrY", // Enter the Key ID generated from the Dashboard
+      "key": "", // Enter the Key ID generated from the Dashboard
       "amount": res.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Verdant - Close To Nature", //your business name
